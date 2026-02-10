@@ -7,281 +7,10 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
   <style>
-    :root{--green-deep:#3a6b4a;--green-mid:#5a8f6a;--green-light:#8aba7a;--green-pale:#c5ddb8;--green-mist:#e8f0e4;--beige-warm:#f5f0e8;--beige-light:#faf8f4;--brown-dark:#5c4a35;--text-main:#3a3a35;--text-soft:#6b6b63;--text-faint:#9a9a90;--white:#fff}
-    *{margin:0;padding:0;box-sizing:border-box}
-    html{scroll-behavior:smooth;font-size:16px}
-    body{font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-main);background:var(--beige-light);overflow-x:hidden;-webkit-font-smoothing:antialiased}
-
-    .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:linear-gradient(180deg,var(--green-mist) 0%,var(--beige-warm) 60%,var(--beige-light) 100%)}
-    .hero::before{content:'';position:absolute;top:-20%;left:-10%;width:120%;height:140%;background:radial-gradient(ellipse 600px 400px at 20% 30%,rgba(138,186,122,.25) 0%,transparent 70%),radial-gradient(ellipse 500px 500px at 75% 60%,rgba(90,143,106,.15) 0%,transparent 70%),radial-gradient(ellipse 300px 300px at 50% 20%,rgba(197,221,184,.3) 0%,transparent 70%);pointer-events:none;animation:floatBg 20s ease-in-out infinite alternate}
-    @keyframes floatBg{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-20px,15px) scale(1.03)}}
-
-    .komorebi{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
-    .komorebi-spot{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,240,.35) 0%,rgba(200,220,180,.15) 40%,transparent 70%);animation:komorebiFloat ease-in-out infinite}
-    .komorebi-spot:nth-child(1){width:200px;height:200px;top:15%;left:10%;animation-duration:8s}
-    .komorebi-spot:nth-child(2){width:300px;height:300px;top:30%;right:5%;animation-duration:12s;animation-delay:2s}
-    .komorebi-spot:nth-child(3){width:150px;height:150px;top:60%;left:30%;animation-duration:10s;animation-delay:4s}
-    .komorebi-spot:nth-child(4){width:250px;height:250px;top:10%;right:25%;animation-duration:14s;animation-delay:1s}
-    .komorebi-spot:nth-child(5){width:180px;height:180px;top:50%;left:60%;animation-duration:9s;animation-delay:3s}
-    @keyframes komorebiFloat{0%,100%{opacity:.3;transform:scale(1) translate(0,0)}25%{opacity:.6;transform:scale(1.1) translate(10px,-8px)}50%{opacity:.4;transform:scale(.95) translate(-5px,12px)}75%{opacity:.7;transform:scale(1.05) translate(8px,5px)}}
-
-    .leaf-container{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
-    .leaf{position:absolute;background:var(--green-light);border-radius:0 50% 50% 50%;opacity:0;animation:leafFall linear infinite}
-    .leaf:nth-child(1){left:8%;width:10px;height:10px;animation-duration:12s}
-    .leaf:nth-child(2){left:20%;width:8px;height:8px;animation-duration:15s;animation-delay:2s;background:var(--green-pale)}
-    .leaf:nth-child(3){left:35%;width:12px;height:12px;animation-duration:11s;animation-delay:4s}
-    .leaf:nth-child(4){left:50%;width:9px;height:9px;animation-duration:14s;animation-delay:1s;background:var(--green-mid)}
-    .leaf:nth-child(5){left:65%;width:7px;height:7px;animation-duration:13s;animation-delay:3s}
-    .leaf:nth-child(6){left:78%;width:11px;height:11px;animation-duration:16s;animation-delay:5s;background:var(--green-pale)}
-    .leaf:nth-child(7){left:90%;width:6px;height:6px;animation-duration:18s;animation-delay:7s}
-    .leaf:nth-child(8){left:42%;width:10px;height:10px;animation-duration:20s;animation-delay:9s;background:var(--green-pale)}
-    @keyframes leafFall{0%{top:-5%;opacity:0;transform:rotate(0) translateX(0)}8%{opacity:.5}30%{opacity:.35;transform:rotate(120deg) translateX(40px)}60%{opacity:.25;transform:rotate(240deg) translateX(-30px)}90%{opacity:.1}100%{top:105%;opacity:0;transform:rotate(400deg) translateX(60px)}}
-
-    .hero-branches{position:absolute;top:0;left:0;width:100%;height:200px;pointer-events:none;overflow:hidden}
-    .hero-branches svg{position:absolute;top:-10px;fill:none;stroke:var(--green-pale);stroke-width:1.5;opacity:.5;animation:branchSway 6s ease-in-out infinite}
-    .hero-branches svg:nth-child(1){left:-2%;width:250px}
-    .hero-branches svg:nth-child(2){right:-3%;width:280px;animation-delay:1.5s;transform:scaleX(-1)}
-    .hero-branches svg:nth-child(3){left:20%;width:180px;opacity:.3;animation-delay:3s}
-    @keyframes branchSway{0%,100%{transform:rotate(0);transform-origin:top center}50%{transform:rotate(2deg)}}
-    .hero-branches svg:nth-child(2){animation-name:branchSwayR}
-    @keyframes branchSwayR{0%,100%{transform:scaleX(-1) rotate(0);transform-origin:top center}50%{transform:scaleX(-1) rotate(2deg)}}
-
-    .hero-content{position:relative;z-index:2;padding:0 2rem}
-    .hero-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1rem,2vw,1.3rem);letter-spacing:.5em;text-transform:uppercase;color:var(--green-deep);margin-bottom:3rem;opacity:0;animation:fadeUp 1.2s ease .3s forwards}
-    .hero-copy{font-family:'Noto Serif JP',serif;font-weight:200;font-size:clamp(1.8rem,5vw,3.2rem);letter-spacing:.15em;line-height:2;color:var(--text-main);margin-bottom:3rem;opacity:0;animation:fadeUp 1.4s ease .8s forwards}
-    .hero-sub{font-weight:200;font-size:clamp(.8rem,1.5vw,.95rem);letter-spacing:.2em;color:var(--text-soft);opacity:0;animation:fadeUp 1.4s ease 1.3s forwards}
-    .hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeUp 1s ease 2s forwards}
-    .hero-scroll span{font-size:.65rem;letter-spacing:.3em;color:var(--text-faint);writing-mode:vertical-rl}
-    .hero-scroll-line{width:1px;height:40px;background:var(--text-faint);animation:scrollPulse 2s ease-in-out infinite}
-    @keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
-    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
-
-    .vine-divider{position:relative;height:80px;display:flex;justify-content:center;align-items:center;overflow:visible}
-    .vine-divider svg{width:200px;height:80px;overflow:visible}
-    .vine-leaf{animation:vineLeafSway 4s ease-in-out infinite;transform-origin:center bottom}
-    .vine-leaf:nth-child(even){animation-delay:1s;animation-direction:reverse}
-    @keyframes vineLeafSway{0%,100%{transform:rotate(0)}50%{transform:rotate(3deg)}}
-
-    section{padding:8rem 2rem;position:relative}
-    .section-inner{max-width:800px;margin:0 auto;position:relative;z-index:2}
-    .section-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.75rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:2rem}
-    .section-title{font-family:'Noto Serif JP',serif;font-weight:300;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:.1em;line-height:2;color:var(--text-main);margin-bottom:2.5rem}
-    .section-body{font-weight:200;font-size:.92rem;line-height:2.2;color:var(--text-soft);letter-spacing:.04em}
-    .fade-in{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}
-    .fade-in.visible{opacity:1;transform:translateY(0)}
-
-    .section-komorebi{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
-    .k-spot{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,240,.2) 0%,rgba(200,220,180,.08) 50%,transparent 70%)}
-    .k-spot:nth-child(1){width:250px;height:250px;top:10%;right:-5%;animation:kF1 12s ease-in-out infinite}
-    .k-spot:nth-child(2){width:180px;height:180px;top:50%;left:-8%;animation:kF2 15s ease-in-out infinite}
-    .k-spot:nth-child(3){width:120px;height:120px;bottom:20%;right:15%;animation:kF3 10s ease-in-out infinite}
-    @keyframes kF1{0%,100%{opacity:.4;transform:translate(0,0)}50%{opacity:.7;transform:translate(-15px,10px)}}
-    @keyframes kF2{0%,100%{opacity:.3;transform:translate(0,0)}50%{opacity:.5;transform:translate(10px,-8px)}}
-    @keyframes kF3{0%,100%{opacity:.2;transform:translate(0,0) scale(1)}50%{opacity:.5;transform:translate(-8px,5px) scale(1.1)}}
-
-    .side-foliage{position:absolute;pointer-events:none;z-index:1}
-    .side-foliage svg{fill:none;stroke:var(--green-pale);stroke-width:1;opacity:.4}
-    .side-foliage--left{left:0;top:50%;transform:translateY(-50%)}
-    .side-foliage--right{right:0;top:40%;transform:translateY(-50%) scaleX(-1)}
-    .foliage-sway{animation:fSway 7s ease-in-out infinite;transform-origin:left center}
-    .foliage-sway-r{animation:fSway 8s ease-in-out infinite reverse;transform-origin:right center}
-    @keyframes fSway{0%,100%{transform:rotate(0) translateX(0)}50%{transform:rotate(1.5deg) translateX(3px)}}
-
-    .concept{background:var(--beige-warm);overflow:hidden}
-    .concept::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green-pale),transparent)}
-    .concept-words{display:flex;flex-direction:column;gap:1rem;margin-top:3rem;padding-left:1.5rem;border-left:1px solid var(--green-pale)}
-    .concept-words p{font-family:'Noto Serif JP',serif;font-weight:300;font-size:1rem;letter-spacing:.12em;line-height:1.8;color:var(--text-main)}
-
-    .space{background:var(--beige-light);overflow:hidden}
-    .space-images{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3rem;margin-bottom:2.5rem}
-    .space-img{aspect-ratio:4/3;border-radius:4px;overflow:hidden}
-    .space-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;font-size:.75rem;letter-spacing:.15em;color:var(--text-faint)}
-    .space-img-placeholder.reception{background:linear-gradient(135deg,var(--green-mist),var(--beige-warm))}
-    .space-img-placeholder.interior{background:linear-gradient(135deg,var(--green-pale),var(--green-mist))}
-    .space-img-placeholder.equipment{background:linear-gradient(135deg,var(--beige-warm),#e0d8cc)}
-    .space-img-placeholder.detail{background:linear-gradient(135deg,#d4dece,var(--green-mist))}
-    .space-img-placeholder svg{width:32px;height:32px;stroke:var(--green-mid);fill:none;stroke-width:1.5}
-    .space-note{font-weight:200;font-size:.82rem;color:var(--text-faint);letter-spacing:.08em;text-align:center;margin-top:1rem}
-
-    .features{background:var(--green-mist);overflow:hidden}
-    .feature-list{display:flex;flex-direction:column;gap:3rem;margin-top:3rem}
-    .feature-item{display:flex;gap:1.5rem;align-items:flex-start}
-    .feature-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2rem;color:var(--green-pale);line-height:1;min-width:2.5rem}
-    .feature-text h3{font-family:'Noto Serif JP',serif;font-weight:400;font-size:1rem;letter-spacing:.1em;color:var(--text-main);margin-bottom:.6rem}
-    .feature-text p{font-weight:200;font-size:.85rem;line-height:2;color:var(--text-soft)}
-
-    .plan{background:var(--beige-warm);overflow:hidden}
-    .plan-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
-    .plan-card{background:var(--beige-light);border:1px solid var(--green-pale);border-radius:6px;padding:2.5rem 2rem;text-align:center;transition:transform .3s ease,box-shadow .3s ease}
-    .plan-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(58,107,74,.08)}
-    .plan-card-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.2rem}
-    .plan-card-name{font-family:'Noto Serif JP',serif;font-weight:400;font-size:1.1rem;letter-spacing:.12em;color:var(--text-main);margin-bottom:.5rem}
-    .plan-card-detail{font-size:.78rem;color:var(--text-faint);letter-spacing:.05em;margin-bottom:1.5rem}
-    .plan-card-price{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.2rem;color:var(--green-deep);line-height:1}
-    .plan-card-price span{font-size:.8rem;font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-soft);letter-spacing:.05em}
-    .plan-note{text-align:center;margin-top:2rem;font-size:.78rem;color:var(--text-faint);letter-spacing:.05em;line-height:2}
-
-    .visitor-block{margin-top:4rem}
-    .visitor-divider{width:40px;height:1px;background:var(--green-pale);margin:0 auto 2.5rem}
-    .visitor-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.5rem}
-    .visitor-title{font-family:'Noto Serif JP',serif;font-weight:300;font-size:clamp(1.1rem,2.5vw,1.4rem);letter-spacing:.1em;line-height:2;color:var(--text-main);margin-bottom:1.5rem}
-    .visitor-body{font-weight:200;font-size:.88rem;line-height:2.2;color:var(--text-soft);letter-spacing:.04em;margin-bottom:2rem}
-    .visitor-card{background:var(--beige-light);border:1px solid var(--green-pale);border-radius:6px;padding:2.5rem 2rem;text-align:center;max-width:320px}
-    .visitor-card-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.2rem}
-    .visitor-card-name{font-family:'Noto Serif JP',serif;font-weight:400;font-size:1.1rem;letter-spacing:.12em;color:var(--text-main);margin-bottom:.5rem}
-    .visitor-card-detail{font-size:.78rem;color:var(--text-faint);letter-spacing:.05em;margin-bottom:1.5rem}
-    .visitor-card-price{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.2rem;color:var(--green-deep);line-height:1}
-    .visitor-card-price span{font-size:.8rem;font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-soft)}
-    .visitor-note{margin-top:1.2rem;font-size:.75rem;color:var(--text-faint);letter-spacing:.05em}
-
-    .trial{background:var(--beige-light);text-align:center;overflow:hidden}
-    .trial-price{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.8rem;color:var(--green-deep);margin:2rem 0 .5rem}
-    .trial-price span{font-size:.9rem;font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-soft)}
-    .trial-note{font-size:.82rem;color:var(--text-soft);line-height:2;margin-bottom:.8rem}
-    .trial-discount{display:inline-block;background:var(--green-mist);border:1px solid var(--green-pale);border-radius:4px;padding:.8rem 2rem;font-size:.82rem;color:var(--green-deep);letter-spacing:.08em;margin-top:1rem}
-
-    .voice{background:var(--green-mist);overflow:hidden}
-    .voice-list{display:flex;flex-direction:column;gap:2rem;margin-top:3rem}
-    .voice-item{background:var(--beige-light);border-radius:6px;padding:2rem;position:relative}
-    .voice-item::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--green-pale);position:absolute;top:.5rem;left:1.2rem;line-height:1}
-    .voice-item p{font-weight:300;font-size:.88rem;line-height:2;color:var(--text-soft);padding-left:1rem}
-    .voice-item .voice-attr{margin-top:.8rem;font-size:.75rem;color:var(--text-faint);letter-spacing:.1em;padding-left:1rem}
-
-    .access{background:var(--beige-warm);overflow:hidden}
-    .access-info{margin-top:2rem;display:flex;flex-direction:column;gap:1.2rem}
-    .access-row{display:flex;gap:2rem;font-size:.88rem;line-height:1.8}
-    .access-row dt{min-width:6rem;color:var(--text-faint);letter-spacing:.1em;font-weight:300}
-    .access-row dd{color:var(--text-main);font-weight:300}
-
-    .cta{background:linear-gradient(180deg,var(--beige-light) 0%,var(--green-mist) 100%);text-align:center;padding:6rem 2rem 8rem;overflow:hidden}
-    .cta .section-title{margin-bottom:1rem}
-    .cta-sub{font-weight:200;font-size:.85rem;color:var(--text-soft);letter-spacing:.08em;margin-bottom:3rem}
-    .cta-button{display:inline-flex;align-items:center;gap:.8rem;background:var(--green-deep);color:var(--white);text-decoration:none;padding:1.1rem 3rem;border-radius:50px;font-family:'Noto Sans JP',sans-serif;font-weight:300;font-size:.9rem;letter-spacing:.15em;transition:all .4s ease;box-shadow:0 4px 20px rgba(58,107,74,.2)}
-    .cta-button:hover{background:var(--green-mid);transform:translateY(-2px);box-shadow:0 8px 30px rgba(58,107,74,.3)}
-    .cta-button svg{width:20px;height:20px;fill:var(--white)}
-
-    footer{background:var(--brown-dark);color:rgba(255,255,255,.5);text-align:center;padding:3rem 2rem}
-    .footer-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;letter-spacing:.5em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:1rem}
-    footer p{font-size:.7rem;letter-spacing:.15em}
-
-    .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:rgba(58,107,74,.95);backdrop-filter:blur(10px);padding:.8rem 2rem;display:flex;justify-content:center;align-items:center;z-index:100;transform:translateY(100%);transition:transform .5s ease}
-    .sticky-cta.show{transform:translateY(0)}
-    .sticky-cta a{display:inline-flex;align-items:center;gap:.6rem;color:var(--white);text-decoration:none;font-size:.82rem;letter-spacing:.15em;font-weight:300;padding:.6rem 2rem;border:1px solid rgba(255,255,255,.3);border-radius:50px;transition:background .3s ease}
-    .sticky-cta a:hover{background:rgba(255,255,255,.1)}
-    .sticky-cta a svg{width:16px;height:16px;fill:var(--white)}
-
-    /* PC only line breaks */
-    .br-pc{display:inline}
-    /* Paragraph spacing (always visible) */
-    .br-para{display:block;height:.8em}
-
-    /*
-      === DEVICE COVERAGE ===
-      iPhone 17 Pro Max / 16 Pro Max : 440px
-      iPhone 17 Air / 16 Plus       : 430px
-      Pixel 9 / 9a                  : 412px
-      iPhone 17 / 17 Pro / 16 Pro   : 402px
-      iPhone 16                     : 393px
-      Galaxy S25 / A25 / AQUOS wish5: 360px
-    */
-
-    /* --- Tablet & small desktop (769-1024px) --- */
-    @media(max-width:1024px){
-      .hero-branches svg:nth-child(3){opacity:.15}
-    }
-
-    /* --- Mobile: all phones (768px and below) --- */
-    @media(max-width:768px){
-      section{padding:5rem 1.5rem}
-      .hero-content{padding:0 1.5rem}
-      .hero-copy{font-size:1.6rem;letter-spacing:.1em;line-height:1.9}
-      .hero-sub{font-size:.8rem;letter-spacing:.15em}
-      .section-title{font-size:1.3rem;letter-spacing:.06em;line-height:1.9}
-      .section-body{font-size:.88rem;line-height:2.1;letter-spacing:.02em}
-      .space-images{grid-template-columns:1fr}
-      .plan-cards{grid-template-columns:1fr;gap:1rem}
-      .plan-card{padding:2rem 1.5rem}
-      .plan-card-price{font-size:1.8rem}
-      .access-row{flex-direction:column;gap:.3rem}
-      .access-row dt{min-width:auto}
-      .feature-item{gap:1rem}
-      .feature-text h3{font-size:.95rem}
-      .feature-text p{font-size:.82rem;line-height:2}
-      .visitor-title{font-size:1.1rem;line-height:1.9}
-      .visitor-body{font-size:.84rem;line-height:2.1}
-      .visitor-card{max-width:100%}
-      .visitor-card-price{font-size:1.8rem}
-      .trial-price{font-size:2.2rem}
-      .trial-note{font-size:.8rem}
-      .trial-discount{font-size:.78rem;padding:.8rem 1.5rem}
-      .voice-item p{font-size:.84rem;line-height:2}
-      .cta{padding:4rem 1.5rem 6rem}
-      .cta-button{padding:1rem 2rem;font-size:.84rem}
-      .plan-note{font-size:.74rem}
-      .concept-words{padding-left:1.2rem}
-      .concept-words p{font-size:.92rem}
-      .side-foliage{display:none}
-      .hero-branches svg:nth-child(3){display:none}
-      .vine-divider svg{width:150px}
-      .vine-divider{height:60px}
-      .sticky-cta a{font-size:.78rem;padding:.5rem 1.5rem}
-      /* Hide PC-only line breaks on mobile */
-      .br-pc{display:none}
-    }
-
-    /* --- Narrow phones: Galaxy S25/A25, AQUOS wish (360px) --- */
-    @media(max-width:389px){
-      section{padding:4rem 1rem}
-      .hero{min-height:100svh}
-      .hero-content{padding:0 1rem}
-      .hero-logo{font-size:.85rem;letter-spacing:.35em;margin-bottom:2.5rem}
-      .hero-copy{font-size:1.35rem;letter-spacing:.08em;line-height:1.85;margin-bottom:2.5rem}
-      .hero-sub{font-size:.72rem;letter-spacing:.12em}
-      .section-label{font-size:.68rem;letter-spacing:.3em;margin-bottom:1.5rem}
-      .section-title{font-size:1.15rem;letter-spacing:.04em;line-height:1.85;margin-bottom:2rem}
-      .section-body{font-size:.82rem;line-height:2;letter-spacing:.01em}
-      .concept-words{padding-left:1rem;gap:.8rem;margin-top:2.5rem}
-      .concept-words p{font-size:.88rem;letter-spacing:.08em}
-      .feature-num{font-size:1.6rem;min-width:2rem}
-      .feature-text h3{font-size:.9rem}
-      .feature-text p{font-size:.78rem;line-height:1.9}
-      .feature-list{gap:2.5rem;margin-top:2.5rem}
-      .plan-card{padding:1.8rem 1.2rem}
-      .plan-card-name{font-size:1rem}
-      .plan-card-price{font-size:1.6rem}
-      .plan-card-detail{font-size:.72rem}
-      .plan-note{font-size:.7rem}
-      .visitor-title{font-size:1rem;line-height:1.85}
-      .visitor-body{font-size:.8rem;line-height:2}
-      .visitor-card{padding:2rem 1.2rem}
-      .visitor-card-price{font-size:1.6rem}
-      .visitor-note{font-size:.7rem}
-      .trial-price{font-size:2rem}
-      .trial-note{font-size:.76rem}
-      .trial-discount{font-size:.74rem;padding:.7rem 1.2rem}
-      .voice-item{padding:1.5rem 1.2rem}
-      .voice-item::before{font-size:2.4rem;left:.8rem}
-      .voice-item p{font-size:.8rem;line-height:1.9;padding-left:.8rem}
-      .voice-item .voice-attr{font-size:.7rem;padding-left:.8rem}
-      .access-row{font-size:.82rem}
-      .cta{padding:3.5rem 1rem 5rem}
-      .cta-sub{font-size:.8rem;margin-bottom:2rem}
-      .cta-button{padding:.9rem 1.8rem;font-size:.8rem;gap:.6rem;letter-spacing:.1em}
-      .cta-button svg{width:18px;height:18px}
-      .vine-divider{height:50px}
-      .vine-divider svg{width:120px}
-      .sticky-cta{padding:.6rem 1rem}
-      .sticky-cta a{font-size:.72rem;padding:.5rem 1.2rem;gap:.5rem}
-      .sticky-cta a svg{width:14px;height:14px}
-      .hero-branches svg:nth-child(1){width:180px}
-      .hero-branches svg:nth-child(2){width:200px}
-      .komorebi-spot:nth-child(2){width:200px;height:200px}
-      .komorebi-spot:nth-child(4){width:160px;height:160px}
-    }
+    :root{--green-deep:#3a6b4a;--green-mid:#5a8f6a;--green-light:#8aba7a;--green-pale:#c5ddb8;--green-mist:#e8f0e4;--beige-warm:#f5f0e8;--beige-light:#faf8f4;--brown-dark:#5c4a35;--text-main:#3a3a35;--text-soft:#6b6b63;--text-faint:#9a9a90;--white:#fff}*{margin:0;padding:0;box-sizing:border-box}html{scroll-behavior:smooth;font-size:16px}body{font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-main);background:var(--beige-light);overflow-x:hidden;-webkit-font-smoothing:antialiased}.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:linear-gradient(180deg,var(--green-mist) 0%,var(--beige-warm) 60%,var(--beige-light) 100%);padding-bottom:3rem}.hero::before{content:'';position:absolute;top:-20%;left:-10%;width:120%;height:140%;background:radial-gradient(ellipse 600px 400px at 20% 30%,rgba(138,186,122,.25) 0%,transparent 70%),radial-gradient(ellipse 500px 500px at 75% 60%,rgba(90,143,106,.15) 0%,transparent 70%),radial-gradient(ellipse 300px 300px at 50% 20%,rgba(197,221,184,.3) 0%,transparent 70%);pointer-events:none;animation:floatBg 20s ease-in-out infinite alternate}@keyframes floatBg{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-20px,15px) scale(1.03)}}.komorebi{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}.komorebi-spot{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,240,.35) 0%,rgba(200,220,180,.15) 40%,transparent 70%);animation:komorebiFloat ease-in-out infinite}.komorebi-spot:nth-child(1){width:200px;height:200px;top:15%;left:10%;animation-duration:8s}.komorebi-spot:nth-child(2){width:300px;height:300px;top:30%;right:5%;animation-duration:12s;animation-delay:2s}.komorebi-spot:nth-child(3){width:150px;height:150px;top:60%;left:30%;animation-duration:10s;animation-delay:4s}.komorebi-spot:nth-child(4){width:250px;height:250px;top:10%;right:25%;animation-duration:14s;animation-delay:1s}.komorebi-spot:nth-child(5){width:180px;height:180px;top:50%;left:60%;animation-duration:9s;animation-delay:3s}@keyframes komorebiFloat{0%,100%{opacity:.3;transform:scale(1) translate(0,0)}25%{opacity:.6;transform:scale(1.1) translate(10px,-8px)}50%{opacity:.4;transform:scale(.95) translate(-5px,12px)}75%{opacity:.7;transform:scale(1.05) translate(8px,5px)}}.leaf-container{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}.leaf{position:absolute;background:var(--green-light);border-radius:0 50% 50% 50%;opacity:0;animation:leafFall linear infinite}.leaf:nth-child(1){left:8%;width:10px;height:10px;animation-duration:12s}.leaf:nth-child(2){left:20%;width:8px;height:8px;animation-duration:15s;animation-delay:2s;background:var(--green-pale)}.leaf:nth-child(3){left:35%;width:12px;height:12px;animation-duration:11s;animation-delay:4s}.leaf:nth-child(4){left:50%;width:9px;height:9px;animation-duration:14s;animation-delay:1s;background:var(--green-mid)}.leaf:nth-child(5){left:65%;width:7px;height:7px;animation-duration:13s;animation-delay:3s}.leaf:nth-child(6){left:78%;width:11px;height:11px;animation-duration:16s;animation-delay:5s;background:var(--green-pale)}.leaf:nth-child(7){left:90%;width:6px;height:6px;animation-duration:18s;animation-delay:7s}.leaf:nth-child(8){left:42%;width:10px;height:10px;animation-duration:20s;animation-delay:9s;background:var(--green-pale)}@keyframes leafFall{0%{top:-5%;opacity:0;transform:rotate(0) translateX(0)}8%{opacity:.5}30%{opacity:.35;transform:rotate(120deg) translateX(40px)}60%{opacity:.25;transform:rotate(240deg) translateX(-30px)}90%{opacity:.1}100%{top:105%;opacity:0;transform:rotate(400deg) translateX(60px)}}.hero-branches{position:absolute;top:0;left:0;width:100%;height:200px;pointer-events:none;overflow:hidden}.hero-branches svg{position:absolute;top:-10px;fill:none;stroke:var(--green-pale);stroke-width:1.5;opacity:.5;animation:branchSway 6s ease-in-out infinite}.hero-branches svg:nth-child(1){left:-2%;width:250px}.hero-branches svg:nth-child(2){right:-3%;width:280px;animation-delay:1.5s;transform:scaleX(-1)}.hero-branches svg:nth-child(3){left:20%;width:180px;opacity:.3;animation-delay:3s}@keyframes branchSway{0%,100%{transform:rotate(0);transform-origin:top center}50%{transform:rotate(2deg)}}.hero-branches svg:nth-child(2){animation-name:branchSwayR}@keyframes branchSwayR{0%,100%{transform:scaleX(-1) rotate(0);transform-origin:top center}50%{transform:scaleX(-1) rotate(2deg)}}.hero-content{position:relative;z-index:2;padding:0 2rem;max-width:900px}.hero-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1rem,2vw,1.3rem);letter-spacing:.5em;text-transform:uppercase;color:var(--green-deep);margin-bottom:3rem;opacity:0;animation:fadeUp 1.2s ease .3s forwards}.hero-copy{font-family:'Noto Serif JP',serif;font-weight:200;font-size:clamp(1.8rem,5vw,3.2rem);letter-spacing:.15em;line-height:2;color:var(--text-main);margin-bottom:2rem;opacity:0;animation:fadeUp 1.4s ease .8s forwards}.hero-sub{font-weight:200;font-size:clamp(.8rem,1.5vw,.95rem);letter-spacing:.2em;color:var(--text-soft);margin-bottom:3rem;opacity:0;animation:fadeUp 1.4s ease 1.3s forwards}.hero-highlights{display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;max-width:800px;margin:0 auto 2.5rem;opacity:0;animation:fadeUp 1.6s ease 1.6s forwards}.hero-highlight-card{background:rgba(255,255,255,.85);backdrop-filter:blur(8px);border:1px solid var(--green-pale);border-radius:8px;padding:1.5rem 1rem;text-align:center;transition:transform .3s ease,box-shadow .3s ease}.hero-highlight-card:hover{transform:translateY(-4px);box-shadow:0 8px 24px rgba(58,107,74,.12)}.hero-highlight-label{font-size:.7rem;letter-spacing:.15em;color:var(--text-faint);margin-bottom:.5rem;text-transform:uppercase;font-family:'Cormorant Garamond',serif}.hero-highlight-value{font-family:'Noto Serif JP',serif;font-weight:400;font-size:1.3rem;color:var(--green-deep);line-height:1.4;letter-spacing:.05em}.hero-highlight-detail{font-size:.75rem;color:var(--text-soft);margin-top:.3rem;letter-spacing:.02em}.hero-cta-wrap{opacity:0;animation:fadeUp 1.8s ease 1.9s forwards}.cta-button{display:inline-flex;align-items:center;gap:.8rem;background:var(--green-deep);color:var(--white);text-decoration:none;padding:1.3rem 3.5rem;border-radius:50px;font-family:'Noto Sans JP',sans-serif;font-weight:400;font-size:1rem;letter-spacing:.15em;transition:all .4s ease;box-shadow:0 6px 24px rgba(58,107,74,.25);position:relative;overflow:hidden}.cta-button::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,.2);transform:translate(-50%,-50%);transition:width .6s ease,height .6s ease}.cta-button:hover::before{width:300px;height:300px}.cta-button:hover{background:var(--green-mid);transform:translateY(-3px);box-shadow:0 10px 35px rgba(58,107,74,.35)}.cta-button svg{width:22px;height:22px;fill:var(--white);position:relative;z-index:1}.cta-button span{position:relative;z-index:1}.cta-note{margin-top:.8rem;font-size:.72rem;color:var(--text-faint);letter-spacing:.05em;line-height:1.6}.hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeUp 1s ease 2.2s forwards}.hero-scroll span{font-size:.65rem;letter-spacing:.3em;color:var(--text-faint);writing-mode:vertical-rl}.hero-scroll-line{width:1px;height:40px;background:var(--text-faint);animation:scrollPulse 2s ease-in-out infinite}@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}.vine-divider{position:relative;height:80px;display:flex;justify-content:center;align-items:center;overflow:visible}.vine-divider svg{width:200px;height:80px;overflow:visible}.vine-leaf{animation:vineLeafSway 4s ease-in-out infinite;transform-origin:center bottom}.vine-leaf:nth-child(even){animation-delay:1s;animation-direction:reverse}@keyframes vineLeafSway{0%,100%{transform:rotate(0)}50%{transform:rotate(3deg)}}section{padding:8rem 2rem;position:relative}.section-inner{max-width:800px;margin:0 auto;position:relative;z-index:2}.section-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.75rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:2rem}.section-title{font-family:'Noto Serif JP',serif;font-weight:300;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:.1em;line-height:2;color:var(--text-main);margin-bottom:2.5rem}.section-body{font-weight:300;font-size:.92rem;line-height:2.2;color:var(--text-soft);letter-spacing:.04em}.section-body strong{font-weight:500;color:var(--text-main)}.fade-in{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}.fade-in.visible{opacity:1;transform:translateY(0)}.section-komorebi{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}.k-spot{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,240,.2) 0%,rgba(200,220,180,.08) 50%,transparent 70%)}.k-spot:nth-child(1){width:250px;height:250px;top:10%;right:-5%;animation:kF1 12s ease-in-out infinite}.k-spot:nth-child(2){width:180px;height:180px;top:50%;left:-8%;animation:kF2 15s ease-in-out infinite}.k-spot:nth-child(3){width:120px;height:120px;bottom:20%;right:15%;animation:kF3 10s ease-in-out infinite}@keyframes kF1{0%,100%{opacity:.4;transform:translate(0,0)}50%{opacity:.7;transform:translate(-15px,10px)}}@keyframes kF2{0%,100%{opacity:.3;transform:translate(0,0)}50%{opacity:.5;transform:translate(10px,-8px)}}@keyframes kF3{0%,100%{opacity:.2;transform:translate(0,0) scale(1)}50%{opacity:.5;transform:translate(-8px,5px) scale(1.1)}}.side-foliage{position:absolute;pointer-events:none;z-index:1}.side-foliage svg{fill:none;stroke:var(--green-pale);stroke-width:1;opacity:.4}.side-foliage--left{left:0;top:50%;transform:translateY(-50%)}.side-foliage--right{right:0;top:40%;transform:translateY(-50%) scaleX(-1)}.foliage-sway{animation:fSway 7s ease-in-out infinite;transform-origin:left center}.foliage-sway-r{animation:fSway 8s ease-in-out infinite reverse;transform-origin:right center}@keyframes fSway{0%,100%{transform:rotate(0) translateX(0)}50%{transform:rotate(1.5deg) translateX(3px)}}.concept{background:var(--beige-warm);overflow:hidden}.concept::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green-pale),transparent)}.concept-words{display:flex;flex-direction:column;gap:1rem;margin-top:3rem;padding-left:1.5rem;border-left:1px solid var(--green-pale)}.concept-words p{font-family:'Noto Serif JP',serif;font-weight:300;font-size:1rem;letter-spacing:.12em;line-height:1.8;color:var(--text-main)}.space{background:var(--beige-light);overflow:hidden}.space-images{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3rem;margin-bottom:2.5rem}.space-img{aspect-ratio:4/3;border-radius:4px;overflow:hidden}.space-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;font-size:.75rem;letter-spacing:.15em;color:var(--text-faint)}.space-img-placeholder.reception{background:linear-gradient(135deg,var(--green-mist),var(--beige-warm))}.space-img-placeholder.interior{background:linear-gradient(135deg,var(--green-pale),var(--green-mist))}.space-img-placeholder.equipment{background:linear-gradient(135deg,var(--beige-warm),#e0d8cc)}.space-img-placeholder.detail{background:linear-gradient(135deg,#d4dece,var(--green-mist))}.space-img-placeholder svg{width:32px;height:32px;stroke:var(--green-mid);fill:none;stroke-width:1.5}.space-note{font-weight:200;font-size:.82rem;color:var(--text-faint);letter-spacing:.08em;text-align:center;margin-top:1rem}.features{background:var(--green-mist);overflow:hidden}.feature-list{display:flex;flex-direction:column;gap:3rem;margin-top:3rem}.feature-item{display:flex;gap:1.5rem;align-items:flex-start}.feature-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2rem;color:var(--green-pale);line-height:1;min-width:2.5rem}.feature-text h3{font-family:'Noto Serif JP',serif;font-weight:400;font-size:1rem;letter-spacing:.1em;color:var(--text-main);margin-bottom:.6rem}.feature-text p{font-weight:300;font-size:.85rem;line-height:2;color:var(--text-soft)}.plan{background:var(--beige-warm);overflow:hidden}.plan-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem;margin-bottom:3rem}.plan-card{background:var(--beige-light);border:1px solid var(--green-pale);border-radius:6px;padding:2.5rem 2rem;text-align:center;transition:transform .3s ease,box-shadow .3s ease}.plan-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(58,107,74,.08)}.plan-card-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.2rem}.plan-card-name{font-family:'Noto Serif JP',serif;font-weight:400;font-size:1.1rem;letter-spacing:.12em;color:var(--text-main);margin-bottom:.5rem}.plan-card-detail{font-size:.78rem;color:var(--text-faint);letter-spacing:.05em;margin-bottom:1.5rem}.plan-card-price{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.2rem;color:var(--green-deep);line-height:1}.plan-card-price span{font-size:.8rem;font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-soft);letter-spacing:.05em}.plan-note{text-align:center;margin-top:2rem;font-size:.78rem;color:var(--text-faint);letter-spacing:.05em;line-height:2}.mid-cta-wrap{text-align:center;margin-top:3rem}.visitor-block{margin-top:4rem}.visitor-divider{width:40px;height:1px;background:var(--green-pale);margin:0 auto 2.5rem}.visitor-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.5rem}.visitor-title{font-family:'Noto Serif JP',serif;font-weight:300;font-size:clamp(1.1rem,2.5vw,1.4rem);letter-spacing:.1em;line-height:2;color:var(--text-main);margin-bottom:1.5rem}.visitor-body{font-weight:300;font-size:.88rem;line-height:2.2;color:var(--text-soft);letter-spacing:.04em;margin-bottom:2rem}.visitor-card{background:var(--beige-light);border:1px solid var(--green-pale);border-radius:6px;padding:2.5rem 2rem;text-align:center;max-width:320px}.visitor-card-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.2rem}.visitor-card-name{font-family:'Noto Serif JP',serif;font-weight:400;font-size:1.1rem;letter-spacing:.12em;color:var(--text-main);margin-bottom:.5rem}.visitor-card-detail{font-size:.78rem;color:var(--text-faint);letter-spacing:.05em;margin-bottom:1.5rem}.visitor-card-price{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.2rem;color:var(--green-deep);line-height:1}.visitor-card-price span{font-size:.8rem;font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-soft)}.visitor-note{margin-top:1.2rem;font-size:.75rem;color:var(--text-faint);letter-spacing:.05em}.trial{background:var(--beige-light);text-align:center;overflow:hidden}.trial-price{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.8rem;color:var(--green-deep);margin:2rem 0 .5rem}.trial-price span{font-size:.9rem;font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-soft)}.trial-note{font-size:.82rem;color:var(--text-soft);line-height:2;margin-bottom:.8rem}.trial-discount{display:inline-block;background:var(--green-mist);border:1px solid var(--green-pale);border-radius:4px;padding:.8rem 2rem;font-size:.82rem;color:var(--green-deep);letter-spacing:.08em;margin-top:1rem;margin-bottom:2.5rem}.flow{background:var(--green-mist);overflow:hidden}.flow-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;margin-top:3rem;margin-bottom:3rem}.flow-step{background:var(--beige-light);border-radius:6px;padding:2rem 1.5rem;text-align:center;position:relative}.flow-step-num{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:1.8rem;color:var(--green-pale);margin-bottom:1rem;line-height:1}.flow-step-title{font-family:'Noto Serif JP',serif;font-weight:400;font-size:.95rem;letter-spacing:.1em;color:var(--text-main);margin-bottom:.5rem}.flow-step-detail{font-size:.75rem;color:var(--text-soft);line-height:1.8;letter-spacing:.02em}.flow-cta-wrap{text-align:center}.voice{background:var(--beige-warm);overflow:hidden}.voice-list{display:flex;flex-direction:column;gap:2rem;margin-top:3rem}.voice-item{background:var(--beige-light);border-radius:6px;padding:2rem;position:relative}.voice-item::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--green-pale);position:absolute;top:.5rem;left:1.2rem;line-height:1}.voice-item p{font-weight:300;font-size:.88rem;line-height:2;color:var(--text-soft);padding-left:1rem}.voice-item .voice-attr{margin-top:.8rem;font-size:.75rem;color:var(--text-faint);letter-spacing:.1em;padding-left:1rem}.access{background:var(--beige-light);overflow:hidden}.access-info{margin-top:2rem;display:flex;flex-direction:column;gap:1.2rem}.access-row{display:flex;gap:2rem;font-size:.88rem;line-height:1.8}.access-row dt{min-width:6rem;color:var(--text-faint);letter-spacing:.1em;font-weight:300}.access-row dd{color:var(--text-main);font-weight:300}.cta{background:linear-gradient(180deg,var(--beige-light) 0%,var(--green-mist) 100%);text-align:center;padding:6rem 2rem 8rem;overflow:hidden}.cta .section-title{margin-bottom:1rem}.cta-sub{font-weight:200;font-size:.85rem;color:var(--text-soft);letter-spacing:.08em;margin-bottom:3rem}footer{background:var(--brown-dark);color:rgba(255,255,255,.5);text-align:center;padding:3rem 2rem}.footer-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;letter-spacing:.5em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:1rem}footer p{font-size:.7rem;letter-spacing:.15em}.floating-line-cta{position:fixed;bottom:2rem;right:2rem;z-index:100;display:none}.floating-line-btn{display:flex;align-items:center;gap:.8rem;background:var(--green-deep);color:var(--white);text-decoration:none;padding:1rem 1.8rem;border-radius:50px;font-size:.88rem;letter-spacing:.12em;box-shadow:0 8px 30px rgba(58,107,74,.4);transition:all .3s ease;font-weight:400}.floating-line-btn:hover{background:var(--green-mid);transform:translateY(-3px);box-shadow:0 12px 40px rgba(58,107,74,.5)}.floating-line-btn svg{width:20px;height:20px;fill:var(--white)}.sticky-cta{position:fixed;bottom:0;left:0;right:0;background:rgba(58,107,74,.95);backdrop-filter:blur(10px);padding:.8rem 2rem;display:flex;justify-content:center;align-items:center;z-index:100;transform:translateY(100%);transition:transform .5s ease}.sticky-cta.show{transform:translateY(0)}.sticky-cta a{display:inline-flex;align-items:center;gap:.6rem;color:var(--white);text-decoration:none;font-size:.82rem;letter-spacing:.15em;font-weight:300;padding:.6rem 2rem;border:1px solid rgba(255,255,255,.3);border-radius:50px;transition:background .3s ease}.sticky-cta a:hover{background:rgba(255,255,255,.1)}.sticky-cta a svg{width:16px;height:16px;fill:var(--white)}.br-pc{display:inline}.br-para{display:block;height:.8em}@media(min-width:769px){.floating-line-cta{display:block}.sticky-cta{display:none}.hero-branches svg:nth-child(3){opacity:.15}}@media(max-width:768px){section{padding:5rem 1.5rem}.hero{padding-bottom:2rem}.hero-content{padding:0 1.5rem}.hero-copy{font-size:1.6rem;letter-spacing:.1em;line-height:1.9}.hero-sub{font-size:.8rem;letter-spacing:.15em}.hero-highlights{grid-template-columns:1fr;gap:.8rem;margin-bottom:2rem}.hero-highlight-card{padding:1.2rem .8rem}.hero-highlight-value{font-size:1.15rem}.cta-button{padding:1.1rem 2.5rem;font-size:.9rem}.cta-note{font-size:.7rem}.section-title{font-size:1.3rem;letter-spacing:.06em;line-height:1.9}.section-body{font-size:.88rem;line-height:2.1;letter-spacing:.02em}.space-images{grid-template-columns:1fr}.plan-cards{grid-template-columns:1fr;gap:1rem}.plan-card{padding:2rem 1.5rem}.plan-card-price{font-size:1.8rem}.flow-steps{grid-template-columns:1fr 1fr;gap:1rem}.flow-step{padding:1.5rem 1rem}.flow-step-num{font-size:1.4rem}.flow-step-title{font-size:.88rem}.flow-step-detail{font-size:.7rem}.access-row{flex-direction:column;gap:.3rem}.access-row dt{min-width:auto}.feature-item{gap:1rem}.feature-text h3{font-size:.95rem}.feature-text p{font-size:.82rem;line-height:2}.visitor-title{font-size:1.1rem;line-height:1.9}.visitor-body{font-size:.84rem;line-height:2.1}.visitor-card{max-width:100%}.visitor-card-price{font-size:1.8rem}.trial-price{font-size:2.2rem}.trial-note{font-size:.8rem}.trial-discount{font-size:.78rem;padding:.8rem 1.5rem}.voice-item p{font-size:.84rem;line-height:2}.cta{padding:4rem 1.5rem 6rem}.plan-note{font-size:.74rem}.concept-words{padding-left:1.2rem}.concept-words p{font-size:.92rem}.side-foliage{display:none}.hero-branches svg:nth-child(3){display:none}.vine-divider svg{width:150px}.vine-divider{height:60px}.floating-line-cta{display:none}.br-pc{display:none}}@media(max-width:389px){section{padding:4rem 1rem}.hero{min-height:100svh}.hero-content{padding:0 1rem}.hero-logo{font-size:.85rem;letter-spacing:.35em;margin-bottom:2.5rem}.hero-copy{font-size:1.35rem;letter-spacing:.08em;line-height:1.85;margin-bottom:1.5rem}.hero-sub{font-size:.72rem;letter-spacing:.12em;margin-bottom:2rem}.hero-highlights{gap:.6rem;margin-bottom:1.5rem}.hero-highlight-card{padding:1rem .7rem}.hero-highlight-label{font-size:.65rem}.hero-highlight-value{font-size:1.05rem}.hero-highlight-detail{font-size:.7rem}.cta-button{padding:1rem 2rem;font-size:.82rem;gap:.6rem}.cta-button svg{width:18px;height:18px}.cta-note{font-size:.68rem}.section-label{font-size:.68rem;letter-spacing:.3em;margin-bottom:1.5rem}.section-title{font-size:1.15rem;letter-spacing:.04em;line-height:1.85;margin-bottom:2rem}.section-body{font-size:.82rem;line-height:2;letter-spacing:.01em}.concept-words{padding-left:1rem;gap:.8rem;margin-top:2.5rem}.concept-words p{font-size:.88rem;letter-spacing:.08em}.feature-num{font-size:1.6rem;min-width:2rem}.feature-text h3{font-size:.9rem}.feature-text p{font-size:.78rem;line-height:1.9}.feature-list{gap:2.5rem;margin-top:2.5rem}.plan-card{padding:1.8rem 1.2rem}.plan-card-name{font-size:1rem}.plan-card-price{font-size:1.6rem}.plan-card-detail{font-size:.72rem}.plan-note{font-size:.7rem}.flow-steps{grid-template-columns:1fr;gap:.8rem}.flow-step{padding:1.3rem .9rem}.flow-step-num{font-size:1.3rem}.flow-step-title{font-size:.82rem}.flow-step-detail{font-size:.68rem;line-height:1.7}.visitor-title{font-size:1rem;line-height:1.85}.visitor-body{font-size:.8rem;line-height:2}.visitor-card{padding:2rem 1.2rem}.visitor-card-price{font-size:1.6rem}.visitor-note{font-size:.7rem}.trial-price{font-size:2rem}.trial-note{font-size:.76rem}.trial-discount{font-size:.74rem;padding:.7rem 1.2rem}.voice-item{padding:1.5rem 1.2rem}.voice-item::before{font-size:2.4rem;left:.8rem}.voice-item p{font-size:.8rem;line-height:1.9;padding-left:.8rem}.voice-item .voice-attr{font-size:.7rem;padding-left:.8rem}.access-row{font-size:.82rem}.cta{padding:3.5rem 1rem 5rem}.cta-sub{font-size:.8rem;margin-bottom:2rem}.vine-divider{height:50px}.vine-divider svg{width:120px}.sticky-cta{padding:.6rem 1rem}.sticky-cta a{font-size:.72rem;padding:.5rem 1.2rem;gap:.5rem}.sticky-cta a svg{width:14px;height:14px}.hero-branches svg:nth-child(1){width:180px}.hero-branches svg:nth-child(2){width:200px}.komorebi-spot:nth-child(2){width:200px;height:200px}.komorebi-spot:nth-child(4){width:160px;height:160px}}
   </style>
 </head>
 <body>
-
   <section class="hero">
     <div class="komorebi">
       <div class="komorebi-spot"></div><div class="komorebi-spot"></div><div class="komorebi-spot"></div><div class="komorebi-spot"></div><div class="komorebi-spot"></div>
@@ -298,6 +27,30 @@
       <p class="hero-logo">Forest Gym</p>
       <h1 class="hero-copy">深呼吸から、はじめる。</h1>
       <p class="hero-sub">パーソナルトレーニング ／ 赤羽</p>
+      <div class="hero-highlights">
+        <div class="hero-highlight-card">
+          <div class="hero-highlight-label">Daytime</div>
+          <div class="hero-highlight-value">月4回 26,000円</div>
+          <div class="hero-highlight-detail">60分／税込</div>
+        </div>
+        <div class="hero-highlight-card">
+          <div class="hero-highlight-label">Nighttime</div>
+          <div class="hero-highlight-value">月4回 38,000円</div>
+          <div class="hero-highlight-detail">90分／税込</div>
+        </div>
+        <div class="hero-highlight-card">
+          <div class="hero-highlight-label">Trial</div>
+          <div class="hero-highlight-value">初回体験 5,500円</div>
+          <div class="hero-highlight-detail">60分／税込</div>
+        </div>
+      </div>
+      <div class="hero-cta-wrap">
+        <a href="https://line.me/R/?src=lp_top" class="cta-button" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          <span>空き枠をLINEで確認する</span>
+        </a>
+        <p class="cta-note">体験後72時間以内のご入会で入会金 22,000円 → 11,000円</p>
+      </div>
     </div>
     <div class="hero-scroll"><span>scroll</span><div class="hero-scroll-line"></div></div>
   </section>
@@ -310,7 +63,7 @@
     <div class="section-inner fade-in">
       <p class="section-label">Concept</p>
       <h2 class="section-title">がんばらなくていい。<br class="br-pc">ただ、来るだけでいい。</h2>
-      <p class="section-body">追い込まない。煽らない。管理しない。<br class="br-pc">FOREST GYMは、自然の空気を感じながら<br class="br-pc">からだを動かすための場所です。<span class="br-para"></span>「運動しなきゃ」ではなく<br class="br-pc">「なんとなく、行きたいな」と思える場所を。<span class="br-para"></span>あなたのペースで、あなたの呼吸で。<br class="br-pc">ただそれだけを、大切にしています。</p>
+      <p class="section-body">FOREST GYMは、<strong>追い込まない</strong>ジムです。<br class="br-pc">「運動しなきゃ」ではなく「なんとなく、行きたいな」と思える場所を目指しました。</p>
       <div class="concept-words"><p>煽らない。</p><p>即決を迫らない。</p><p>続くことだけを、考えた。</p></div>
     </div>
   </section>
@@ -323,7 +76,7 @@
     <div class="section-inner fade-in">
       <p class="section-label">Space</p>
       <h2 class="section-title">木漏れ日の中で、<br class="br-pc">からだを動かす。</h2>
-      <p class="section-body">一歩入ると、そこは緑に囲まれた空間。<br class="br-pc">足元には木の温もり、見上げれば枝葉のアーチ。<br class="br-pc">ここでは時計も、鏡の中の自分も、少しだけ忘れられます。</p>
+      <p class="section-body">一歩入ると、そこは<strong>緑に囲まれた静かな空間</strong>。<br class="br-pc"><strong>光・音・匂いを抑えた設計</strong>で、自分のペースで呼吸できます。</p>
       <div class="space-images">
         <div class="space-img"><div class="space-img-placeholder reception"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>受付 ─ 観葉植物のある静かな入口</div></div>
         <div class="space-img"><div class="space-img-placeholder interior"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" fill="none" stroke="var(--green-mid)" stroke-width="1.5"/></svg>トレーニングスペース ─ 人工木に囲まれた空間</div></div>
@@ -364,11 +117,18 @@
         <div class="plan-card"><p class="plan-card-label">Nighttime</p><p class="plan-card-name">夜プラン</p><p class="plan-card-detail">月4回 ／ 90分 ／ 完全予約制</p><p class="plan-card-price">¥38,000<span>／月（税込）</span></p></div>
       </div>
       <div class="plan-note">繰り越し不可 ／ 当日キャンセルは消化扱い<br class="br-pc">オプション：食事管理サポート ¥10,000／月</div>
+      <div class="mid-cta-wrap fade-in">
+        <a href="https://line.me/R/?src=lp_mid" class="cta-button" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          <span>空き枠をLINEで確認する</span>
+        </a>
+        <p class="cta-note">体験後72時間以内のご入会で入会金 22,000円 → 11,000円</p>
+      </div>
       <div class="visitor-block fade-in">
         <div class="visitor-divider"></div>
         <p class="visitor-label">Visitor</p>
         <h3 class="visitor-title">予約のない時間は、<br class="br-pc">この空間をひとりで。</h3>
-        <p class="visitor-body">パーソナルセッションの予約が入っていない時間帯は、ビジター利用が可能です。<br class="br-pc">トレーナーなしで、自分のペースで、静かにからだを動かす。<br class="br-pc">この空間を、ただ使うという選択。</p>
+        <p class="visitor-body">パーソナルセッションの予約が入っていない時間帯は、ビジター利用が可能です。<br class="br-pc">トレーナーなしで、自分のペースで、静かにからだを動かす。</p>
         <div class="visitor-card"><p class="visitor-card-label">Visitor Use</p><p class="visitor-card-name">ビジター利用</p><p class="visitor-card-detail">1回 ／ 60分 ／ 空き枠のみ</p><p class="visitor-card-price">¥8,800<span>（税込）</span></p></div>
         <p class="visitor-note">※ 空き状況はLINEよりお問い合わせください</p>
       </div>
@@ -385,10 +145,41 @@
       <p class="trial-note">初回体験は、通常のセッションと同じ内容です。<br class="br-pc">空間を感じて、からだを動かして、ゆっくり決めてください。</p>
       <p class="trial-price">¥5,500<span>（税込）</span></p>
       <div class="trial-discount">体験後 72時間以内のご入会で<br class="br-pc">入会金 ¥22,000 → ¥11,000</div>
+      <div class="hero-cta-wrap">
+        <a href="https://line.me/R/?src=lp_trial" class="cta-button" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          <span>空き枠をLINEで確認する</span>
+        </a>
+        <p class="cta-note">体験後72時間以内のご入会で入会金 22,000円 → 11,000円</p>
+      </div>
     </div>
   </section>
 
   <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M20,40 Q60,35 100,40 Q140,45 180,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M90,40 Q95,55 85,63" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="83" cy="65" rx="7" ry="4" fill="rgba(138,186,122,.3)" class="vine-leaf"/></svg></div>
+
+  <section class="flow">
+    <div class="section-komorebi"><div class="k-spot"></div><div class="k-spot"></div><div class="k-spot"></div></div>
+    <div class="side-foliage side-foliage--left"><svg width="50" height="240" viewBox="0 0 50 240" class="foliage-sway"><path d="M0,30 Q18,55 8,85 Q0,115 15,145 Q25,175 10,205 Q0,225 10,240" stroke-linecap="round"/><ellipse cx="8" cy="85" rx="9" ry="5" fill="rgba(138,186,122,.2)" stroke="none"/><ellipse cx="15" cy="145" rx="9" ry="5" fill="rgba(197,221,184,.15)" stroke="none"/><ellipse cx="10" cy="205" rx="8" ry="5" fill="rgba(138,186,122,.15)" stroke="none"/></svg></div>
+    <div class="section-inner fade-in">
+      <p class="section-label">Flow</p>
+      <h2 class="section-title">初回体験の流れ（約60分）</h2>
+      <div class="flow-steps">
+        <div class="flow-step"><div class="flow-step-num">01</div><h3 class="flow-step-title">カウンセリング</h3><p class="flow-step-detail">目標や生活リズムをゆっくりお聞きします（10分）</p></div>
+        <div class="flow-step"><div class="flow-step-num">02</div><h3 class="flow-step-title">可動域チェック</h3><p class="flow-step-detail">からだの状態を確認しながら無理のない範囲で</p></div>
+        <div class="flow-step"><div class="flow-step-num">03</div><h3 class="flow-step-title">トレーニング体験</h3><p class="flow-step-detail">実際のメニューをこの空間で体感してください</p></div>
+        <div class="flow-step"><div class="flow-step-num">04</div><h3 class="flow-step-title">通い方の相談</h3><p class="flow-step-detail">営業は一切しません。72時間、ゆっくり考えてください</p></div>
+      </div>
+      <div class="flow-cta-wrap">
+        <a href="https://line.me/R/?src=lp_flow" class="cta-button" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+          <span>候補日をLINEで送る</span>
+        </a>
+        <p class="cta-note">体験後72時間以内のご入会で入会金 22,000円 → 11,000円</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M30,40 Q70,42 100,40 Q130,38 170,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M70,41 Q65,26 75,18" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="76" cy="16" rx="6" ry="4" fill="rgba(138,186,122,.3)" class="vine-leaf"/><path d="M130,39 Q135,54 125,62" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="123" cy="64" rx="7" ry="4" fill="rgba(197,221,184,.3)" class="vine-leaf"/></svg></div>
 
   <section class="voice">
     <div class="section-komorebi"><div class="k-spot"></div><div class="k-spot"></div><div class="k-spot"></div></div>
@@ -404,7 +195,7 @@
     </div>
   </section>
 
-  <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M30,40 Q70,42 100,40 Q130,38 170,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M70,41 Q65,26 75,18" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="76" cy="16" rx="6" ry="4" fill="rgba(138,186,122,.3)" class="vine-leaf"/><path d="M130,39 Q135,54 125,62" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="123" cy="64" rx="7" ry="4" fill="rgba(197,221,184,.3)" class="vine-leaf"/></svg></div>
+  <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M15,40 Q55,38 100,40 Q145,42 185,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M60,40 Q65,54 55,62" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="53" cy="64" rx="6" ry="4" fill="rgba(138,186,122,.3)" class="vine-leaf"/><path d="M140,40 Q135,27 143,20" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="144" cy="18" rx="5" ry="3" fill="rgba(197,221,184,.25)" class="vine-leaf"/></svg></div>
 
   <section class="access">
     <div class="section-inner fade-in">
@@ -423,10 +214,11 @@
     <div class="section-inner fade-in">
       <h2 class="section-title">深呼吸から、はじめる。</h2>
       <p class="cta-sub">まずはLINEでお気軽にご連絡ください。</p>
-      <a href="https://line.me/R/" class="cta-button" target="_blank" rel="noopener">
+      <a href="https://line.me/R/?src=lp_bottom" class="cta-button" target="_blank" rel="noopener">
         <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-        LINEで体験予約する
+        <span>LINE で体験予約する</span>
       </a>
+      <p class="cta-note">体験後72時間以内のご入会で入会金 22,000円 → 11,000円</p>
     </div>
   </section>
 
@@ -435,10 +227,17 @@
     <p>&copy; 2026 FOREST GYM All Rights Reserved.</p>
   </footer>
 
-  <div class="sticky-cta" id="stickyCta">
-    <a href="https://line.me/R/" target="_blank" rel="noopener">
+  <div class="floating-line-cta">
+    <a href="https://line.me/R/?src=lp_float" class="floating-line-btn" target="_blank" rel="noopener">
       <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
-      LINE で体験予約
+      <span>まずはLINEで相談</span>
+    </a>
+  </div>
+
+  <div class="sticky-cta" id="stickyCta">
+    <a href="https://line.me/R/?src=lp_sticky" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      <span>LINE で体験予約</span>
     </a>
   </div>
 
@@ -459,4 +258,3 @@
   </script>
 </body>
 </html>
-Claude
