@@ -170,18 +170,113 @@
     .sticky-cta a:hover{background:rgba(255,255,255,.1)}
     .sticky-cta a svg{width:16px;height:16px;fill:var(--white)}
 
+    /* PC only line breaks */
+    .br-pc{display:inline}
+    /* Paragraph spacing (always visible) */
+    .br-para{display:block;height:.8em}
+
+    /*
+      === DEVICE COVERAGE ===
+      iPhone 17 Pro Max / 16 Pro Max : 440px
+      iPhone 17 Air / 16 Plus       : 430px
+      Pixel 9 / 9a                  : 412px
+      iPhone 17 / 17 Pro / 16 Pro   : 402px
+      iPhone 16                     : 393px
+      Galaxy S25 / A25 / AQUOS wish5: 360px
+    */
+
+    /* --- Tablet & small desktop (769-1024px) --- */
+    @media(max-width:1024px){
+      .hero-branches svg:nth-child(3){opacity:.15}
+    }
+
+    /* --- Mobile: all phones (768px and below) --- */
     @media(max-width:768px){
       section{padding:5rem 1.5rem}
-      .hero-copy{font-size:1.6rem;letter-spacing:.1em}
+      .hero-content{padding:0 1.5rem}
+      .hero-copy{font-size:1.6rem;letter-spacing:.1em;line-height:1.9}
+      .hero-sub{font-size:.8rem;letter-spacing:.15em}
+      .section-title{font-size:1.3rem;letter-spacing:.06em;line-height:1.9}
+      .section-body{font-size:.88rem;line-height:2.1;letter-spacing:.02em}
       .space-images{grid-template-columns:1fr}
       .plan-cards{grid-template-columns:1fr;gap:1rem}
+      .plan-card{padding:2rem 1.5rem}
+      .plan-card-price{font-size:1.8rem}
       .access-row{flex-direction:column;gap:.3rem}
       .access-row dt{min-width:auto}
       .feature-item{gap:1rem}
+      .feature-text h3{font-size:.95rem}
+      .feature-text p{font-size:.82rem;line-height:2}
+      .visitor-title{font-size:1.1rem;line-height:1.9}
+      .visitor-body{font-size:.84rem;line-height:2.1}
+      .visitor-card{max-width:100%}
+      .visitor-card-price{font-size:1.8rem}
+      .trial-price{font-size:2.2rem}
+      .trial-note{font-size:.8rem}
+      .trial-discount{font-size:.78rem;padding:.8rem 1.5rem}
+      .voice-item p{font-size:.84rem;line-height:2}
       .cta{padding:4rem 1.5rem 6rem}
+      .cta-button{padding:1rem 2rem;font-size:.84rem}
+      .plan-note{font-size:.74rem}
+      .concept-words{padding-left:1.2rem}
+      .concept-words p{font-size:.92rem}
       .side-foliage{display:none}
       .hero-branches svg:nth-child(3){display:none}
       .vine-divider svg{width:150px}
+      .vine-divider{height:60px}
+      .sticky-cta a{font-size:.78rem;padding:.5rem 1.5rem}
+      /* Hide PC-only line breaks on mobile */
+      .br-pc{display:none}
+    }
+
+    /* --- Narrow phones: Galaxy S25/A25, AQUOS wish (360px) --- */
+    @media(max-width:389px){
+      section{padding:4rem 1rem}
+      .hero{min-height:100svh}
+      .hero-content{padding:0 1rem}
+      .hero-logo{font-size:.85rem;letter-spacing:.35em;margin-bottom:2.5rem}
+      .hero-copy{font-size:1.35rem;letter-spacing:.08em;line-height:1.85;margin-bottom:2.5rem}
+      .hero-sub{font-size:.72rem;letter-spacing:.12em}
+      .section-label{font-size:.68rem;letter-spacing:.3em;margin-bottom:1.5rem}
+      .section-title{font-size:1.15rem;letter-spacing:.04em;line-height:1.85;margin-bottom:2rem}
+      .section-body{font-size:.82rem;line-height:2;letter-spacing:.01em}
+      .concept-words{padding-left:1rem;gap:.8rem;margin-top:2.5rem}
+      .concept-words p{font-size:.88rem;letter-spacing:.08em}
+      .feature-num{font-size:1.6rem;min-width:2rem}
+      .feature-text h3{font-size:.9rem}
+      .feature-text p{font-size:.78rem;line-height:1.9}
+      .feature-list{gap:2.5rem;margin-top:2.5rem}
+      .plan-card{padding:1.8rem 1.2rem}
+      .plan-card-name{font-size:1rem}
+      .plan-card-price{font-size:1.6rem}
+      .plan-card-detail{font-size:.72rem}
+      .plan-note{font-size:.7rem}
+      .visitor-title{font-size:1rem;line-height:1.85}
+      .visitor-body{font-size:.8rem;line-height:2}
+      .visitor-card{padding:2rem 1.2rem}
+      .visitor-card-price{font-size:1.6rem}
+      .visitor-note{font-size:.7rem}
+      .trial-price{font-size:2rem}
+      .trial-note{font-size:.76rem}
+      .trial-discount{font-size:.74rem;padding:.7rem 1.2rem}
+      .voice-item{padding:1.5rem 1.2rem}
+      .voice-item::before{font-size:2.4rem;left:.8rem}
+      .voice-item p{font-size:.8rem;line-height:1.9;padding-left:.8rem}
+      .voice-item .voice-attr{font-size:.7rem;padding-left:.8rem}
+      .access-row{font-size:.82rem}
+      .cta{padding:3.5rem 1rem 5rem}
+      .cta-sub{font-size:.8rem;margin-bottom:2rem}
+      .cta-button{padding:.9rem 1.8rem;font-size:.8rem;gap:.6rem;letter-spacing:.1em}
+      .cta-button svg{width:18px;height:18px}
+      .vine-divider{height:50px}
+      .vine-divider svg{width:120px}
+      .sticky-cta{padding:.6rem 1rem}
+      .sticky-cta a{font-size:.72rem;padding:.5rem 1.2rem;gap:.5rem}
+      .sticky-cta a svg{width:14px;height:14px}
+      .hero-branches svg:nth-child(1){width:180px}
+      .hero-branches svg:nth-child(2){width:200px}
+      .komorebi-spot:nth-child(2){width:200px;height:200px}
+      .komorebi-spot:nth-child(4){width:160px;height:160px}
     }
   </style>
 </head>
@@ -214,8 +309,8 @@
     <div class="side-foliage side-foliage--right"><svg width="60" height="300" viewBox="0 0 60 300" class="foliage-sway-r"><path d="M60,50 Q40,60 50,80 Q60,100 45,120 Q30,140 50,160 Q65,180 45,200 Q25,220 50,240 Q60,260 45,280" stroke-linecap="round"/><ellipse cx="50" cy="80" rx="10" ry="6" fill="rgba(138,186,122,.2)" stroke="none"/><ellipse cx="45" cy="120" rx="8" ry="5" fill="rgba(197,221,184,.2)" stroke="none"/><ellipse cx="50" cy="160" rx="11" ry="6" fill="rgba(138,186,122,.15)" stroke="none"/><ellipse cx="45" cy="200" rx="9" ry="5" fill="rgba(197,221,184,.2)" stroke="none"/></svg></div>
     <div class="section-inner fade-in">
       <p class="section-label">Concept</p>
-      <h2 class="section-title">がんばらなくていい。<br>ただ、来るだけでいい。</h2>
-      <p class="section-body">追い込まない。煽らない。管理しない。<br>FOREST GYMは、自然の空気を感じながら<br>からだを動かすための場所です。<br><br>「運動しなきゃ」ではなく<br>「なんとなく、行きたいな」と思える場所を。<br><br>あなたのペースで、あなたの呼吸で。<br>ただそれだけを、大切にしています。</p>
+      <h2 class="section-title">がんばらなくていい。<br class="br-pc">ただ、来るだけでいい。</h2>
+      <p class="section-body">追い込まない。煽らない。管理しない。<br class="br-pc">FOREST GYMは、自然の空気を感じながら<br class="br-pc">からだを動かすための場所です。<span class="br-para"></span>「運動しなきゃ」ではなく<br class="br-pc">「なんとなく、行きたいな」と思える場所を。<span class="br-para"></span>あなたのペースで、あなたの呼吸で。<br class="br-pc">ただそれだけを、大切にしています。</p>
       <div class="concept-words"><p>煽らない。</p><p>即決を迫らない。</p><p>続くことだけを、考えた。</p></div>
     </div>
   </section>
@@ -227,8 +322,8 @@
     <div class="side-foliage side-foliage--left"><svg width="50" height="250" viewBox="0 0 50 250" class="foliage-sway"><path d="M0,30 Q20,50 10,80 Q0,110 15,140 Q30,170 10,200 Q0,220 15,250" stroke-linecap="round"/><ellipse cx="10" cy="80" rx="9" ry="5" fill="rgba(138,186,122,.2)" stroke="none"/><ellipse cx="15" cy="140" rx="10" ry="5" fill="rgba(197,221,184,.2)" stroke="none"/><ellipse cx="10" cy="200" rx="8" ry="5" fill="rgba(138,186,122,.15)" stroke="none"/></svg></div>
     <div class="section-inner fade-in">
       <p class="section-label">Space</p>
-      <h2 class="section-title">木漏れ日の中で、<br>からだを動かす。</h2>
-      <p class="section-body">一歩入ると、そこは緑に囲まれた空間。<br>足元には木の温もり、見上げれば枝葉のアーチ。<br>ここでは時計も、鏡の中の自分も、少しだけ忘れられます。</p>
+      <h2 class="section-title">木漏れ日の中で、<br class="br-pc">からだを動かす。</h2>
+      <p class="section-body">一歩入ると、そこは緑に囲まれた空間。<br class="br-pc">足元には木の温もり、見上げれば枝葉のアーチ。<br class="br-pc">ここでは時計も、鏡の中の自分も、少しだけ忘れられます。</p>
       <div class="space-images">
         <div class="space-img"><div class="space-img-placeholder reception"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>受付 ─ 観葉植物のある静かな入口</div></div>
         <div class="space-img"><div class="space-img-placeholder interior"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" fill="none" stroke="var(--green-mid)" stroke-width="1.5"/></svg>トレーニングスペース ─ 人工木に囲まれた空間</div></div>
@@ -248,10 +343,10 @@
       <p class="section-label">Why Forest Gym</p>
       <h2 class="section-title">続けられる理由が、ここにある。</h2>
       <div class="feature-list">
-        <div class="feature-item"><span class="feature-num">01</span><div class="feature-text"><h3>自然を感じる空間設計</h3><p>人工木が茂り、足元は木の温もりを感じるブラウンのフロア。<br>ジムにいることを忘れるような、没入感のある空間です。</p></div></div>
-        <div class="feature-item"><span class="feature-num">02</span><div class="feature-text"><h3>月額制だから、ただ通うだけ</h3><p>月4回のパーソナルセッション。<br>都度払いの心理的ハードルも、回数消化のプレッシャーもありません。</p></div></div>
-        <div class="feature-item"><span class="feature-num">03</span><div class="feature-text"><h3>伴走するトレーナー</h3><p>追い込むのではなく、隣を歩く存在。<br>あなたの生活にフィットネスが溶け込むように、そっとサポートします。</p></div></div>
-        <div class="feature-item"><span class="feature-num">04</span><div class="feature-text"><h3>押し売りは、しません</h3><p>体験後の即決を迫ることはありません。<br>72時間、ゆっくり考えてください。</p></div></div>
+        <div class="feature-item"><span class="feature-num">01</span><div class="feature-text"><h3>自然を感じる空間設計</h3><p>人工木が茂り、足元は木の温もりを感じるブラウンのフロア。<br class="br-pc">ジムにいることを忘れるような、没入感のある空間です。</p></div></div>
+        <div class="feature-item"><span class="feature-num">02</span><div class="feature-text"><h3>月額制だから、ただ通うだけ</h3><p>月4回のパーソナルセッション。<br class="br-pc">都度払いの心理的ハードルも、回数消化のプレッシャーもありません。</p></div></div>
+        <div class="feature-item"><span class="feature-num">03</span><div class="feature-text"><h3>伴走するトレーナー</h3><p>追い込むのではなく、隣を歩く存在。<br class="br-pc">あなたの生活にフィットネスが溶け込むように、そっとサポートします。</p></div></div>
+        <div class="feature-item"><span class="feature-num">04</span><div class="feature-text"><h3>押し売りは、しません</h3><p>体験後の即決を迫ることはありません。<br class="br-pc">72時間、ゆっくり考えてください。</p></div></div>
       </div>
     </div>
   </section>
@@ -268,12 +363,12 @@
         <div class="plan-card"><p class="plan-card-label">Daytime</p><p class="plan-card-name">昼プラン</p><p class="plan-card-detail">月4回 ／ 60分 ／ 完全予約制</p><p class="plan-card-price">¥26,000<span>／月（税込）</span></p></div>
         <div class="plan-card"><p class="plan-card-label">Nighttime</p><p class="plan-card-name">夜プラン</p><p class="plan-card-detail">月4回 ／ 90分 ／ 完全予約制</p><p class="plan-card-price">¥38,000<span>／月（税込）</span></p></div>
       </div>
-      <div class="plan-note">繰り越し不可 ／ 当日キャンセルは消化扱い<br>オプション：食事管理サポート ¥10,000／月</div>
+      <div class="plan-note">繰り越し不可 ／ 当日キャンセルは消化扱い<br class="br-pc">オプション：食事管理サポート ¥10,000／月</div>
       <div class="visitor-block fade-in">
         <div class="visitor-divider"></div>
         <p class="visitor-label">Visitor</p>
-        <h3 class="visitor-title">予約のない時間は、<br>この空間をひとりで。</h3>
-        <p class="visitor-body">パーソナルセッションの予約が入っていない時間帯は、<br>ビジター利用が可能です。<br>トレーナーなしで、自分のペースで、静かにからだを動かす。<br>この空間を、ただ使うという選択。</p>
+        <h3 class="visitor-title">予約のない時間は、<br class="br-pc">この空間をひとりで。</h3>
+        <p class="visitor-body">パーソナルセッションの予約が入っていない時間帯は、ビジター利用が可能です。<br class="br-pc">トレーナーなしで、自分のペースで、静かにからだを動かす。<br class="br-pc">この空間を、ただ使うという選択。</p>
         <div class="visitor-card"><p class="visitor-card-label">Visitor Use</p><p class="visitor-card-name">ビジター利用</p><p class="visitor-card-detail">1回 ／ 60分 ／ 空き枠のみ</p><p class="visitor-card-price">¥8,800<span>（税込）</span></p></div>
         <p class="visitor-note">※ 空き状況はLINEよりお問い合わせください</p>
       </div>
@@ -287,9 +382,9 @@
     <div class="section-inner fade-in">
       <p class="section-label">Trial</p>
       <h2 class="section-title">まずは、一度。</h2>
-      <p class="trial-note">初回体験は、通常のセッションと同じ内容です。<br>空間を感じて、からだを動かして、ゆっくり決めてください。</p>
+      <p class="trial-note">初回体験は、通常のセッションと同じ内容です。<br class="br-pc">空間を感じて、からだを動かして、ゆっくり決めてください。</p>
       <p class="trial-price">¥5,500<span>（税込）</span></p>
-      <div class="trial-discount">体験後 72時間以内のご入会で<br>入会金 ¥22,000 → ¥11,000</div>
+      <div class="trial-discount">体験後 72時間以内のご入会で<br class="br-pc">入会金 ¥22,000 → ¥11,000</div>
     </div>
   </section>
 
@@ -302,9 +397,9 @@
       <p class="section-label">Voice</p>
       <h2 class="section-title">通っている方の声。</h2>
       <div class="voice-list">
-        <div class="voice-item"><p>ジムって「行かなきゃ」って場所だったんですけど、<br>ここは「行きたいな」って思える場所になりました。</p><p class="voice-attr">── 30代 会社員</p></div>
-        <div class="voice-item"><p>入った瞬間に空気が変わる感じがして、<br>それだけで来てよかったと思えます。</p><p class="voice-attr">── 20代 自営業</p></div>
-        <div class="voice-item"><p>トレーナーさんが無理に追い込まないから、<br>自分のペースで続けられています。もう8ヶ月。</p><p class="voice-attr">── 40代 会社員</p></div>
+        <div class="voice-item"><p>ジムって「行かなきゃ」って場所だったんですけど、<br class="br-pc">ここは「行きたいな」って思える場所になりました。</p><p class="voice-attr">── 30代 会社員</p></div>
+        <div class="voice-item"><p>入った瞬間に空気が変わる感じがして、<br class="br-pc">それだけで来てよかったと思えます。</p><p class="voice-attr">── 20代 自営業</p></div>
+        <div class="voice-item"><p>トレーナーさんが無理に追い込まないから、<br class="br-pc">自分のペースで続けられています。もう8ヶ月。</p><p class="voice-attr">── 40代 会社員</p></div>
       </div>
     </div>
   </section>
@@ -364,3 +459,4 @@
   </script>
 </body>
 </html>
+Claude
