@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FOREST GYM | 深呼吸から、はじめる。</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Noto+Sans+JP:wght@200;300;400;500&family=Noto+Serif+JP:wght@200;300;400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--green-deep:#3a6b4a;--green-mid:#5a8f6a;--green-light:#8aba7a;--green-pale:#c5ddb8;--green-mist:#e8f0e4;--beige-warm:#f5f0e8;--beige-light:#faf8f4;--brown-dark:#5c4a35;--text-main:#3a3a35;--text-soft:#6b6b63;--text-faint:#9a9a90;--white:#fff}
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth;font-size:16px}
+    body{font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-main);background:var(--beige-light);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+
+    .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:linear-gradient(180deg,var(--green-mist) 0%,var(--beige-warm) 60%,var(--beige-light) 100%)}
+    .hero::before{content:'';position:absolute;top:-20%;left:-10%;width:120%;height:140%;background:radial-gradient(ellipse 600px 400px at 20% 30%,rgba(138,186,122,.25) 0%,transparent 70%),radial-gradient(ellipse 500px 500px at 75% 60%,rgba(90,143,106,.15) 0%,transparent 70%),radial-gradient(ellipse 300px 300px at 50% 20%,rgba(197,221,184,.3) 0%,transparent 70%);pointer-events:none;animation:floatBg 20s ease-in-out infinite alternate}
+    @keyframes floatBg{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-20px,15px) scale(1.03)}}
+
+    .komorebi{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+    .komorebi-spot{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,240,.35) 0%,rgba(200,220,180,.15) 40%,transparent 70%);animation:komorebiFloat ease-in-out infinite}
+    .komorebi-spot:nth-child(1){width:200px;height:200px;top:15%;left:10%;animation-duration:8s}
+    .komorebi-spot:nth-child(2){width:300px;height:300px;top:30%;right:5%;animation-duration:12s;animation-delay:2s}
+    .komorebi-spot:nth-child(3){width:150px;height:150px;top:60%;left:30%;animation-duration:10s;animation-delay:4s}
+    .komorebi-spot:nth-child(4){width:250px;height:250px;top:10%;right:25%;animation-duration:14s;animation-delay:1s}
+    .komorebi-spot:nth-child(5){width:180px;height:180px;top:50%;left:60%;animation-duration:9s;animation-delay:3s}
+    @keyframes komorebiFloat{0%,100%{opacity:.3;transform:scale(1) translate(0,0)}25%{opacity:.6;transform:scale(1.1) translate(10px,-8px)}50%{opacity:.4;transform:scale(.95) translate(-5px,12px)}75%{opacity:.7;transform:scale(1.05) translate(8px,5px)}}
+
+    .leaf-container{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+    .leaf{position:absolute;background:var(--green-light);border-radius:0 50% 50% 50%;opacity:0;animation:leafFall linear infinite}
+    .leaf:nth-child(1){left:8%;width:10px;height:10px;animation-duration:12s}
+    .leaf:nth-child(2){left:20%;width:8px;height:8px;animation-duration:15s;animation-delay:2s;background:var(--green-pale)}
+    .leaf:nth-child(3){left:35%;width:12px;height:12px;animation-duration:11s;animation-delay:4s}
+    .leaf:nth-child(4){left:50%;width:9px;height:9px;animation-duration:14s;animation-delay:1s;background:var(--green-mid)}
+    .leaf:nth-child(5){left:65%;width:7px;height:7px;animation-duration:13s;animation-delay:3s}
+    .leaf:nth-child(6){left:78%;width:11px;height:11px;animation-duration:16s;animation-delay:5s;background:var(--green-pale)}
+    .leaf:nth-child(7){left:90%;width:6px;height:6px;animation-duration:18s;animation-delay:7s}
+    .leaf:nth-child(8){left:42%;width:10px;height:10px;animation-duration:20s;animation-delay:9s;background:var(--green-pale)}
+    @keyframes leafFall{0%{top:-5%;opacity:0;transform:rotate(0) translateX(0)}8%{opacity:.5}30%{opacity:.35;transform:rotate(120deg) translateX(40px)}60%{opacity:.25;transform:rotate(240deg) translateX(-30px)}90%{opacity:.1}100%{top:105%;opacity:0;transform:rotate(400deg) translateX(60px)}}
+
+    .hero-branches{position:absolute;top:0;left:0;width:100%;height:200px;pointer-events:none;overflow:hidden}
+    .hero-branches svg{position:absolute;top:-10px;fill:none;stroke:var(--green-pale);stroke-width:1.5;opacity:.5;animation:branchSway 6s ease-in-out infinite}
+    .hero-branches svg:nth-child(1){left:-2%;width:250px}
+    .hero-branches svg:nth-child(2){right:-3%;width:280px;animation-delay:1.5s;transform:scaleX(-1)}
+    .hero-branches svg:nth-child(3){left:20%;width:180px;opacity:.3;animation-delay:3s}
+    @keyframes branchSway{0%,100%{transform:rotate(0);transform-origin:top center}50%{transform:rotate(2deg)}}
+    .hero-branches svg:nth-child(2){animation-name:branchSwayR}
+    @keyframes branchSwayR{0%,100%{transform:scaleX(-1) rotate(0);transform-origin:top center}50%{transform:scaleX(-1) rotate(2deg)}}
+
+    .hero-content{position:relative;z-index:2;padding:0 2rem}
+    .hero-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(1rem,2vw,1.3rem);letter-spacing:.5em;text-transform:uppercase;color:var(--green-deep);margin-bottom:3rem;opacity:0;animation:fadeUp 1.2s ease .3s forwards}
+    .hero-copy{font-family:'Noto Serif JP',serif;font-weight:200;font-size:clamp(1.8rem,5vw,3.2rem);letter-spacing:.15em;line-height:2;color:var(--text-main);margin-bottom:3rem;opacity:0;animation:fadeUp 1.4s ease .8s forwards}
+    .hero-sub{font-weight:200;font-size:clamp(.8rem,1.5vw,.95rem);letter-spacing:.2em;color:var(--text-soft);opacity:0;animation:fadeUp 1.4s ease 1.3s forwards}
+    .hero-scroll{position:absolute;bottom:3rem;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:.5rem;opacity:0;animation:fadeUp 1s ease 2s forwards}
+    .hero-scroll span{font-size:.65rem;letter-spacing:.3em;color:var(--text-faint);writing-mode:vertical-rl}
+    .hero-scroll-line{width:1px;height:40px;background:var(--text-faint);animation:scrollPulse 2s ease-in-out infinite}
+    @keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+    @keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}
+
+    .vine-divider{position:relative;height:80px;display:flex;justify-content:center;align-items:center;overflow:visible}
+    .vine-divider svg{width:200px;height:80px;overflow:visible}
+    .vine-leaf{animation:vineLeafSway 4s ease-in-out infinite;transform-origin:center bottom}
+    .vine-leaf:nth-child(even){animation-delay:1s;animation-direction:reverse}
+    @keyframes vineLeafSway{0%,100%{transform:rotate(0)}50%{transform:rotate(3deg)}}
+
+    section{padding:8rem 2rem;position:relative}
+    .section-inner{max-width:800px;margin:0 auto;position:relative;z-index:2}
+    .section-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.75rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:2rem}
+    .section-title{font-family:'Noto Serif JP',serif;font-weight:300;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:.1em;line-height:2;color:var(--text-main);margin-bottom:2.5rem}
+    .section-body{font-weight:200;font-size:.92rem;line-height:2.2;color:var(--text-soft);letter-spacing:.04em}
+    .fade-in{opacity:0;transform:translateY(40px);transition:opacity .9s ease,transform .9s ease}
+    .fade-in.visible{opacity:1;transform:translateY(0)}
+
+    .section-komorebi{position:absolute;top:0;left:0;width:100%;height:100%;pointer-events:none;overflow:hidden}
+    .k-spot{position:absolute;border-radius:50%;background:radial-gradient(circle,rgba(255,255,240,.2) 0%,rgba(200,220,180,.08) 50%,transparent 70%)}
+    .k-spot:nth-child(1){width:250px;height:250px;top:10%;right:-5%;animation:kF1 12s ease-in-out infinite}
+    .k-spot:nth-child(2){width:180px;height:180px;top:50%;left:-8%;animation:kF2 15s ease-in-out infinite}
+    .k-spot:nth-child(3){width:120px;height:120px;bottom:20%;right:15%;animation:kF3 10s ease-in-out infinite}
+    @keyframes kF1{0%,100%{opacity:.4;transform:translate(0,0)}50%{opacity:.7;transform:translate(-15px,10px)}}
+    @keyframes kF2{0%,100%{opacity:.3;transform:translate(0,0)}50%{opacity:.5;transform:translate(10px,-8px)}}
+    @keyframes kF3{0%,100%{opacity:.2;transform:translate(0,0) scale(1)}50%{opacity:.5;transform:translate(-8px,5px) scale(1.1)}}
+
+    .side-foliage{position:absolute;pointer-events:none;z-index:1}
+    .side-foliage svg{fill:none;stroke:var(--green-pale);stroke-width:1;opacity:.4}
+    .side-foliage--left{left:0;top:50%;transform:translateY(-50%)}
+    .side-foliage--right{right:0;top:40%;transform:translateY(-50%) scaleX(-1)}
+    .foliage-sway{animation:fSway 7s ease-in-out infinite;transform-origin:left center}
+    .foliage-sway-r{animation:fSway 8s ease-in-out infinite reverse;transform-origin:right center}
+    @keyframes fSway{0%,100%{transform:rotate(0) translateX(0)}50%{transform:rotate(1.5deg) translateX(3px)}}
+
+    .concept{background:var(--beige-warm);overflow:hidden}
+    .concept::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:linear-gradient(90deg,transparent,var(--green-pale),transparent)}
+    .concept-words{display:flex;flex-direction:column;gap:1rem;margin-top:3rem;padding-left:1.5rem;border-left:1px solid var(--green-pale)}
+    .concept-words p{font-family:'Noto Serif JP',serif;font-weight:300;font-size:1rem;letter-spacing:.12em;line-height:1.8;color:var(--text-main)}
+
+    .space{background:var(--beige-light);overflow:hidden}
+    .space-images{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:3rem;margin-bottom:2.5rem}
+    .space-img{aspect-ratio:4/3;border-radius:4px;overflow:hidden}
+    .space-img-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:.8rem;font-size:.75rem;letter-spacing:.15em;color:var(--text-faint)}
+    .space-img-placeholder.reception{background:linear-gradient(135deg,var(--green-mist),var(--beige-warm))}
+    .space-img-placeholder.interior{background:linear-gradient(135deg,var(--green-pale),var(--green-mist))}
+    .space-img-placeholder.equipment{background:linear-gradient(135deg,var(--beige-warm),#e0d8cc)}
+    .space-img-placeholder.detail{background:linear-gradient(135deg,#d4dece,var(--green-mist))}
+    .space-img-placeholder svg{width:32px;height:32px;stroke:var(--green-mid);fill:none;stroke-width:1.5}
+    .space-note{font-weight:200;font-size:.82rem;color:var(--text-faint);letter-spacing:.08em;text-align:center;margin-top:1rem}
+
+    .features{background:var(--green-mist);overflow:hidden}
+    .feature-list{display:flex;flex-direction:column;gap:3rem;margin-top:3rem}
+    .feature-item{display:flex;gap:1.5rem;align-items:flex-start}
+    .feature-num{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:2rem;color:var(--green-pale);line-height:1;min-width:2.5rem}
+    .feature-text h3{font-family:'Noto Serif JP',serif;font-weight:400;font-size:1rem;letter-spacing:.1em;color:var(--text-main);margin-bottom:.6rem}
+    .feature-text p{font-weight:200;font-size:.85rem;line-height:2;color:var(--text-soft)}
+
+    .plan{background:var(--beige-warm);overflow:hidden}
+    .plan-cards{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:3rem}
+    .plan-card{background:var(--beige-light);border:1px solid var(--green-pale);border-radius:6px;padding:2.5rem 2rem;text-align:center;transition:transform .3s ease,box-shadow .3s ease}
+    .plan-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(58,107,74,.08)}
+    .plan-card-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.2rem}
+    .plan-card-name{font-family:'Noto Serif JP',serif;font-weight:400;font-size:1.1rem;letter-spacing:.12em;color:var(--text-main);margin-bottom:.5rem}
+    .plan-card-detail{font-size:.78rem;color:var(--text-faint);letter-spacing:.05em;margin-bottom:1.5rem}
+    .plan-card-price{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.2rem;color:var(--green-deep);line-height:1}
+    .plan-card-price span{font-size:.8rem;font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-soft);letter-spacing:.05em}
+    .plan-note{text-align:center;margin-top:2rem;font-size:.78rem;color:var(--text-faint);letter-spacing:.05em;line-height:2}
+
+    .visitor-block{margin-top:4rem}
+    .visitor-divider{width:40px;height:1px;background:var(--green-pale);margin:0 auto 2.5rem}
+    .visitor-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.5rem}
+    .visitor-title{font-family:'Noto Serif JP',serif;font-weight:300;font-size:clamp(1.1rem,2.5vw,1.4rem);letter-spacing:.1em;line-height:2;color:var(--text-main);margin-bottom:1.5rem}
+    .visitor-body{font-weight:200;font-size:.88rem;line-height:2.2;color:var(--text-soft);letter-spacing:.04em;margin-bottom:2rem}
+    .visitor-card{background:var(--beige-light);border:1px solid var(--green-pale);border-radius:6px;padding:2.5rem 2rem;text-align:center;max-width:320px}
+    .visitor-card-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.2rem}
+    .visitor-card-name{font-family:'Noto Serif JP',serif;font-weight:400;font-size:1.1rem;letter-spacing:.12em;color:var(--text-main);margin-bottom:.5rem}
+    .visitor-card-detail{font-size:.78rem;color:var(--text-faint);letter-spacing:.05em;margin-bottom:1.5rem}
+    .visitor-card-price{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.2rem;color:var(--green-deep);line-height:1}
+    .visitor-card-price span{font-size:.8rem;font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-soft)}
+    .visitor-note{margin-top:1.2rem;font-size:.75rem;color:var(--text-faint);letter-spacing:.05em}
+
+    .trial{background:var(--beige-light);text-align:center;overflow:hidden}
+    .trial-price{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.8rem;color:var(--green-deep);margin:2rem 0 .5rem}
+    .trial-price span{font-size:.9rem;font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-soft)}
+    .trial-note{font-size:.82rem;color:var(--text-soft);line-height:2;margin-bottom:.8rem}
+    .trial-discount{display:inline-block;background:var(--green-mist);border:1px solid var(--green-pale);border-radius:4px;padding:.8rem 2rem;font-size:.82rem;color:var(--green-deep);letter-spacing:.08em;margin-top:1rem}
+
+    .voice{background:var(--green-mist);overflow:hidden}
+    .voice-list{display:flex;flex-direction:column;gap:2rem;margin-top:3rem}
+    .voice-item{background:var(--beige-light);border-radius:6px;padding:2rem;position:relative}
+    .voice-item::before{content:'\201C';font-family:'Cormorant Garamond',serif;font-size:3rem;color:var(--green-pale);position:absolute;top:.5rem;left:1.2rem;line-height:1}
+    .voice-item p{font-weight:300;font-size:.88rem;line-height:2;color:var(--text-soft);padding-left:1rem}
+    .voice-item .voice-attr{margin-top:.8rem;font-size:.75rem;color:var(--text-faint);letter-spacing:.1em;padding-left:1rem}
+
+    .access{background:var(--beige-warm);overflow:hidden}
+    .access-info{margin-top:2rem;display:flex;flex-direction:column;gap:1.2rem}
+    .access-row{display:flex;gap:2rem;font-size:.88rem;line-height:1.8}
+    .access-row dt{min-width:6rem;color:var(--text-faint);letter-spacing:.1em;font-weight:300}
+    .access-row dd{color:var(--text-main);font-weight:300}
+
+    .cta{background:linear-gradient(180deg,var(--beige-light) 0%,var(--green-mist) 100%);text-align:center;padding:6rem 2rem 8rem;overflow:hidden}
+    .cta .section-title{margin-bottom:1rem}
+    .cta-sub{font-weight:200;font-size:.85rem;color:var(--text-soft);letter-spacing:.08em;margin-bottom:3rem}
+    .cta-button{display:inline-flex;align-items:center;gap:.8rem;background:var(--green-deep);color:var(--white);text-decoration:none;padding:1.1rem 3rem;border-radius:50px;font-family:'Noto Sans JP',sans-serif;font-weight:300;font-size:.9rem;letter-spacing:.15em;transition:all .4s ease;box-shadow:0 4px 20px rgba(58,107,74,.2)}
+    .cta-button:hover{background:var(--green-mid);transform:translateY(-2px);box-shadow:0 8px 30px rgba(58,107,74,.3)}
+    .cta-button svg{width:20px;height:20px;fill:var(--white)}
+
+    footer{background:var(--brown-dark);color:rgba(255,255,255,.5);text-align:center;padding:3rem 2rem}
+    .footer-logo{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:1rem;letter-spacing:.5em;text-transform:uppercase;color:rgba(255,255,255,.7);margin-bottom:1rem}
+    footer p{font-size:.7rem;letter-spacing:.15em}
+
+    .sticky-cta{position:fixed;bottom:0;left:0;right:0;background:rgba(58,107,74,.95);backdrop-filter:blur(10px);padding:.8rem 2rem;display:flex;justify-content:center;align-items:center;z-index:100;transform:translateY(100%);transition:transform .5s ease}
+    .sticky-cta.show{transform:translateY(0)}
+    .sticky-cta a{display:inline-flex;align-items:center;gap:.6rem;color:var(--white);text-decoration:none;font-size:.82rem;letter-spacing:.15em;font-weight:300;padding:.6rem 2rem;border:1px solid rgba(255,255,255,.3);border-radius:50px;transition:background .3s ease}
+    .sticky-cta a:hover{background:rgba(255,255,255,.1)}
+    .sticky-cta a svg{width:16px;height:16px;fill:var(--white)}
+
+    @media(max-width:768px){
+      section{padding:5rem 1.5rem}
+      .hero-copy{font-size:1.6rem;letter-spacing:.1em}
+      .space-images{grid-template-columns:1fr}
+      .plan-cards{grid-template-columns:1fr;gap:1rem}
+      .access-row{flex-direction:column;gap:.3rem}
+      .access-row dt{min-width:auto}
+      .feature-item{gap:1rem}
+      .cta{padding:4rem 1.5rem 6rem}
+      .side-foliage{display:none}
+      .hero-branches svg:nth-child(3){display:none}
+      .vine-divider svg{width:150px}
+    }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="komorebi">
+      <div class="komorebi-spot"></div><div class="komorebi-spot"></div><div class="komorebi-spot"></div><div class="komorebi-spot"></div><div class="komorebi-spot"></div>
+    </div>
+    <div class="hero-branches">
+      <svg viewBox="0 0 250 120"><path d="M0,0 Q30,40 20,80 Q15,100 25,120" stroke-linecap="round"/><path d="M20,40 Q40,50 35,70" stroke-linecap="round"/><path d="M15,60 Q0,70 5,90" stroke-linecap="round"/><ellipse cx="25" cy="120" rx="8" ry="5" fill="rgba(138,186,122,.3)" stroke="none" class="vine-leaf"/><ellipse cx="35" cy="70" rx="6" ry="4" fill="rgba(197,221,184,.3)" stroke="none" class="vine-leaf"/><ellipse cx="5" cy="90" rx="7" ry="4" fill="rgba(138,186,122,.25)" stroke="none" class="vine-leaf"/></svg>
+      <svg viewBox="0 0 280 130"><path d="M280,0 Q250,50 260,90 Q265,110 255,130" stroke-linecap="round"/><path d="M260,35 Q240,55 245,80" stroke-linecap="round"/><path d="M265,70 Q280,85 275,110" stroke-linecap="round"/><ellipse cx="255" cy="130" rx="9" ry="5" fill="rgba(138,186,122,.3)" stroke="none" class="vine-leaf"/><ellipse cx="245" cy="80" rx="7" ry="4" fill="rgba(197,221,184,.25)" stroke="none" class="vine-leaf"/></svg>
+      <svg viewBox="0 0 180 90"><path d="M90,0 Q85,30 95,60 Q100,75 90,90" stroke-linecap="round"/><path d="M92,30 Q110,40 105,60" stroke-linecap="round"/><ellipse cx="90" cy="90" rx="7" ry="4" fill="rgba(197,221,184,.3)" stroke="none" class="vine-leaf"/><ellipse cx="105" cy="60" rx="5" ry="3" fill="rgba(138,186,122,.2)" stroke="none" class="vine-leaf"/></svg>
+    </div>
+    <div class="leaf-container">
+      <div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div><div class="leaf"></div>
+    </div>
+    <div class="hero-content">
+      <p class="hero-logo">Forest Gym</p>
+      <h1 class="hero-copy">深呼吸から、はじめる。</h1>
+      <p class="hero-sub">パーソナルトレーニング ／ 赤羽</p>
+    </div>
+    <div class="hero-scroll"><span>scroll</span><div class="hero-scroll-line"></div></div>
+  </section>
+
+  <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M20,40 Q50,40 100,40 Q150,40 180,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M60,40 Q55,25 65,18" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="65" cy="16" rx="6" ry="4" fill="rgba(138,186,122,.3)" class="vine-leaf"/><path d="M100,40 Q105,55 95,62" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="95" cy="64" rx="7" ry="4" fill="rgba(197,221,184,.35)" class="vine-leaf"/><path d="M140,40 Q135,28 145,20" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="145" cy="18" rx="5" ry="3.5" fill="rgba(138,186,122,.25)" class="vine-leaf"/></svg></div>
+
+  <section class="concept">
+    <div class="section-komorebi"><div class="k-spot"></div><div class="k-spot"></div><div class="k-spot"></div></div>
+    <div class="side-foliage side-foliage--right"><svg width="60" height="300" viewBox="0 0 60 300" class="foliage-sway-r"><path d="M60,50 Q40,60 50,80 Q60,100 45,120 Q30,140 50,160 Q65,180 45,200 Q25,220 50,240 Q60,260 45,280" stroke-linecap="round"/><ellipse cx="50" cy="80" rx="10" ry="6" fill="rgba(138,186,122,.2)" stroke="none"/><ellipse cx="45" cy="120" rx="8" ry="5" fill="rgba(197,221,184,.2)" stroke="none"/><ellipse cx="50" cy="160" rx="11" ry="6" fill="rgba(138,186,122,.15)" stroke="none"/><ellipse cx="45" cy="200" rx="9" ry="5" fill="rgba(197,221,184,.2)" stroke="none"/></svg></div>
+    <div class="section-inner fade-in">
+      <p class="section-label">Concept</p>
+      <h2 class="section-title">がんばらなくていい。<br>ただ、来るだけでいい。</h2>
+      <p class="section-body">追い込まない。煽らない。管理しない。<br>FOREST GYMは、自然の空気を感じながら<br>からだを動かすための場所です。<br><br>「運動しなきゃ」ではなく<br>「なんとなく、行きたいな」と思える場所を。<br><br>あなたのペースで、あなたの呼吸で。<br>ただそれだけを、大切にしています。</p>
+      <div class="concept-words"><p>煽らない。</p><p>即決を迫らない。</p><p>続くことだけを、考えた。</p></div>
+    </div>
+  </section>
+
+  <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M30,40 Q70,35 100,40 Q130,45 170,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M70,40 Q75,55 65,63" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="63" cy="65" rx="7" ry="4" fill="rgba(138,186,122,.3)" class="vine-leaf"/><path d="M130,40 Q125,25 135,17" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="136" cy="15" rx="6" ry="4" fill="rgba(197,221,184,.3)" class="vine-leaf"/></svg></div>
+
+  <section class="space">
+    <div class="section-komorebi"><div class="k-spot"></div><div class="k-spot"></div><div class="k-spot"></div></div>
+    <div class="side-foliage side-foliage--left"><svg width="50" height="250" viewBox="0 0 50 250" class="foliage-sway"><path d="M0,30 Q20,50 10,80 Q0,110 15,140 Q30,170 10,200 Q0,220 15,250" stroke-linecap="round"/><ellipse cx="10" cy="80" rx="9" ry="5" fill="rgba(138,186,122,.2)" stroke="none"/><ellipse cx="15" cy="140" rx="10" ry="5" fill="rgba(197,221,184,.2)" stroke="none"/><ellipse cx="10" cy="200" rx="8" ry="5" fill="rgba(138,186,122,.15)" stroke="none"/></svg></div>
+    <div class="section-inner fade-in">
+      <p class="section-label">Space</p>
+      <h2 class="section-title">木漏れ日の中で、<br>からだを動かす。</h2>
+      <p class="section-body">一歩入ると、そこは緑に囲まれた空間。<br>足元には木の温もり、見上げれば枝葉のアーチ。<br>ここでは時計も、鏡の中の自分も、少しだけ忘れられます。</p>
+      <div class="space-images">
+        <div class="space-img"><div class="space-img-placeholder reception"><svg viewBox="0 0 24 24"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>受付 ─ 観葉植物のある静かな入口</div></div>
+        <div class="space-img"><div class="space-img-placeholder interior"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2" fill="none" stroke="var(--green-mid)" stroke-width="1.5"/></svg>トレーニングスペース ─ 人工木に囲まれた空間</div></div>
+        <div class="space-img"><div class="space-img-placeholder equipment"><svg viewBox="0 0 24 24"><rect x="2" y="7" width="20" height="10" rx="1"/><line x1="6" y1="7" x2="6" y2="17"/><line x1="18" y1="7" x2="18" y2="17"/></svg>設備 ─ 必要なものだけを、静かに</div></div>
+        <div class="space-img"><div class="space-img-placeholder detail"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M8 14s1.5 2 4 2 4-2 4-2" fill="none" stroke="var(--green-mid)" stroke-width="1.5"/></svg>ディテール ─ 茶色い床、木の匂い</div></div>
+      </div>
+      <p class="space-note">※ 写真はイメージです。実際の内装は異なる場合があります。</p>
+    </div>
+  </section>
+
+  <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M10,40 Q60,30 100,40 Q140,50 190,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M50,38 Q45,22 55,15" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="56" cy="13" rx="6" ry="3.5" fill="rgba(138,186,122,.3)" class="vine-leaf"/><path d="M110,42 Q115,58 105,65" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="103" cy="67" rx="7" ry="4" fill="rgba(197,221,184,.3)" class="vine-leaf"/><path d="M160,39 Q155,26 163,19" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="164" cy="17" rx="5" ry="3" fill="rgba(138,186,122,.25)" class="vine-leaf"/></svg></div>
+
+  <section class="features">
+    <div class="section-komorebi"><div class="k-spot"></div><div class="k-spot"></div><div class="k-spot"></div></div>
+    <div class="side-foliage side-foliage--right"><svg width="55" height="280" viewBox="0 0 55 280" class="foliage-sway-r"><path d="M55,40 Q35,60 45,90 Q55,120 40,150 Q25,180 45,210 Q55,240 40,270" stroke-linecap="round"/><ellipse cx="45" cy="90" rx="9" ry="5" fill="rgba(138,186,122,.2)" stroke="none"/><ellipse cx="40" cy="150" rx="10" ry="5" fill="rgba(197,221,184,.15)" stroke="none"/><ellipse cx="45" cy="210" rx="8" ry="5" fill="rgba(138,186,122,.15)" stroke="none"/></svg></div>
+    <div class="section-inner fade-in">
+      <p class="section-label">Why Forest Gym</p>
+      <h2 class="section-title">続けられる理由が、ここにある。</h2>
+      <div class="feature-list">
+        <div class="feature-item"><span class="feature-num">01</span><div class="feature-text"><h3>自然を感じる空間設計</h3><p>人工木が茂り、足元は木の温もりを感じるブラウンのフロア。<br>ジムにいることを忘れるような、没入感のある空間です。</p></div></div>
+        <div class="feature-item"><span class="feature-num">02</span><div class="feature-text"><h3>月額制だから、ただ通うだけ</h3><p>月4回のパーソナルセッション。<br>都度払いの心理的ハードルも、回数消化のプレッシャーもありません。</p></div></div>
+        <div class="feature-item"><span class="feature-num">03</span><div class="feature-text"><h3>伴走するトレーナー</h3><p>追い込むのではなく、隣を歩く存在。<br>あなたの生活にフィットネスが溶け込むように、そっとサポートします。</p></div></div>
+        <div class="feature-item"><span class="feature-num">04</span><div class="feature-text"><h3>押し売りは、しません</h3><p>体験後の即決を迫ることはありません。<br>72時間、ゆっくり考えてください。</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M25,40 Q65,45 100,40 Q135,35 175,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M80,41 Q85,56 75,63" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="73" cy="65" rx="6" ry="4" fill="rgba(138,186,122,.3)" class="vine-leaf"/><path d="M120,39 Q115,24 125,17" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="126" cy="15" rx="7" ry="4" fill="rgba(197,221,184,.3)" class="vine-leaf"/></svg></div>
+
+  <section class="plan">
+    <div class="section-komorebi"><div class="k-spot"></div><div class="k-spot"></div><div class="k-spot"></div></div>
+    <div class="side-foliage side-foliage--left"><svg width="45" height="220" viewBox="0 0 45 220" class="foliage-sway"><path d="M0,20 Q18,45 8,75 Q0,105 15,130 Q25,155 10,185 Q0,200 10,220" stroke-linecap="round"/><ellipse cx="8" cy="75" rx="8" ry="5" fill="rgba(138,186,122,.2)" stroke="none"/><ellipse cx="15" cy="130" rx="9" ry="5" fill="rgba(197,221,184,.15)" stroke="none"/><ellipse cx="10" cy="185" rx="7" ry="4" fill="rgba(138,186,122,.15)" stroke="none"/></svg></div>
+    <div class="section-inner fade-in">
+      <p class="section-label">Plan</p>
+      <h2 class="section-title">シンプルな、ふたつのプラン。</h2>
+      <div class="plan-cards">
+        <div class="plan-card"><p class="plan-card-label">Daytime</p><p class="plan-card-name">昼プラン</p><p class="plan-card-detail">月4回 ／ 60分 ／ 完全予約制</p><p class="plan-card-price">¥26,000<span>／月（税込）</span></p></div>
+        <div class="plan-card"><p class="plan-card-label">Nighttime</p><p class="plan-card-name">夜プラン</p><p class="plan-card-detail">月4回 ／ 90分 ／ 完全予約制</p><p class="plan-card-price">¥38,000<span>／月（税込）</span></p></div>
+      </div>
+      <div class="plan-note">繰り越し不可 ／ 当日キャンセルは消化扱い<br>オプション：食事管理サポート ¥10,000／月</div>
+      <div class="visitor-block fade-in">
+        <div class="visitor-divider"></div>
+        <p class="visitor-label">Visitor</p>
+        <h3 class="visitor-title">予約のない時間は、<br>この空間をひとりで。</h3>
+        <p class="visitor-body">パーソナルセッションの予約が入っていない時間帯は、<br>ビジター利用が可能です。<br>トレーナーなしで、自分のペースで、静かにからだを動かす。<br>この空間を、ただ使うという選択。</p>
+        <div class="visitor-card"><p class="visitor-card-label">Visitor Use</p><p class="visitor-card-name">ビジター利用</p><p class="visitor-card-detail">1回 ／ 60分 ／ 空き枠のみ</p><p class="visitor-card-price">¥8,800<span>（税込）</span></p></div>
+        <p class="visitor-note">※ 空き状況はLINEよりお問い合わせください</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M15,40 Q55,38 100,40 Q145,42 185,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M60,40 Q65,54 55,62" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="53" cy="64" rx="6" ry="4" fill="rgba(138,186,122,.3)" class="vine-leaf"/><path d="M140,40 Q135,27 143,20" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="144" cy="18" rx="5" ry="3" fill="rgba(197,221,184,.25)" class="vine-leaf"/></svg></div>
+
+  <section class="trial">
+    <div class="section-komorebi"><div class="k-spot"></div><div class="k-spot"></div><div class="k-spot"></div></div>
+    <div class="section-inner fade-in">
+      <p class="section-label">Trial</p>
+      <h2 class="section-title">まずは、一度。</h2>
+      <p class="trial-note">初回体験は、通常のセッションと同じ内容です。<br>空間を感じて、からだを動かして、ゆっくり決めてください。</p>
+      <p class="trial-price">¥5,500<span>（税込）</span></p>
+      <div class="trial-discount">体験後 72時間以内のご入会で<br>入会金 ¥22,000 → ¥11,000</div>
+    </div>
+  </section>
+
+  <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M20,40 Q60,35 100,40 Q140,45 180,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M90,40 Q95,55 85,63" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="83" cy="65" rx="7" ry="4" fill="rgba(138,186,122,.3)" class="vine-leaf"/></svg></div>
+
+  <section class="voice">
+    <div class="section-komorebi"><div class="k-spot"></div><div class="k-spot"></div><div class="k-spot"></div></div>
+    <div class="side-foliage side-foliage--right"><svg width="50" height="240" viewBox="0 0 50 240" class="foliage-sway-r"><path d="M50,30 Q32,55 42,85 Q52,115 35,145 Q20,175 40,205 Q50,225 38,240" stroke-linecap="round"/><ellipse cx="42" cy="85" rx="9" ry="5" fill="rgba(138,186,122,.2)" stroke="none"/><ellipse cx="35" cy="145" rx="8" ry="5" fill="rgba(197,221,184,.15)" stroke="none"/><ellipse cx="40" cy="205" rx="9" ry="5" fill="rgba(138,186,122,.15)" stroke="none"/></svg></div>
+    <div class="section-inner fade-in">
+      <p class="section-label">Voice</p>
+      <h2 class="section-title">通っている方の声。</h2>
+      <div class="voice-list">
+        <div class="voice-item"><p>ジムって「行かなきゃ」って場所だったんですけど、<br>ここは「行きたいな」って思える場所になりました。</p><p class="voice-attr">── 30代 会社員</p></div>
+        <div class="voice-item"><p>入った瞬間に空気が変わる感じがして、<br>それだけで来てよかったと思えます。</p><p class="voice-attr">── 20代 自営業</p></div>
+        <div class="voice-item"><p>トレーナーさんが無理に追い込まないから、<br>自分のペースで続けられています。もう8ヶ月。</p><p class="voice-attr">── 40代 会社員</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M30,40 Q70,42 100,40 Q130,38 170,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M70,41 Q65,26 75,18" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="76" cy="16" rx="6" ry="4" fill="rgba(138,186,122,.3)" class="vine-leaf"/><path d="M130,39 Q135,54 125,62" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="123" cy="64" rx="7" ry="4" fill="rgba(197,221,184,.3)" class="vine-leaf"/></svg></div>
+
+  <section class="access">
+    <div class="section-inner fade-in">
+      <p class="section-label">Access</p>
+      <h2 class="section-title">場所について。</h2>
+      <dl class="access-info">
+        <div class="access-row"><dt>所在地</dt><dd>東京都北区赤羽</dd></div>
+        <div class="access-row"><dt>アクセス</dt><dd>JR赤羽駅より徒歩8分</dd></div>
+        <div class="access-row"><dt>営業時間</dt><dd>8:00 ─ 翌6:00（完全予約制）</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="section-komorebi"><div class="k-spot"></div><div class="k-spot"></div><div class="k-spot"></div></div>
+    <div class="section-inner fade-in">
+      <h2 class="section-title">深呼吸から、はじめる。</h2>
+      <p class="cta-sub">まずはLINEでお気軽にご連絡ください。</p>
+      <a href="https://line.me/R/" class="cta-button" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+        LINEで体験予約する
+      </a>
+    </div>
+  </section>
+
+  <footer>
+    <p class="footer-logo">Forest Gym</p>
+    <p>&copy; 2026 FOREST GYM All Rights Reserved.</p>
+  </footer>
+
+  <div class="sticky-cta" id="stickyCta">
+    <a href="https://line.me/R/" target="_blank" rel="noopener">
+      <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
+      LINE で体験予約
+    </a>
+  </div>
+
+  <script>
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    const stickyCta = document.getElementById('stickyCta');
+    const stickyObs = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) stickyCta.classList.add('show');
+        else stickyCta.classList.remove('show');
+      });
+    }, { threshold: 0 });
+    stickyObs.observe(document.querySelector('.hero'));
+  </script>
+</body>
+</html>
