@@ -21,7 +21,7 @@
     body{font-family:'Noto Sans JP',sans-serif;font-weight:300;color:var(--text-main);background:var(--beige-light);overflow-x:hidden;-webkit-font-smoothing:antialiased;word-break:auto-phrase;overflow-wrap:anywhere}
 
     /* ===== HERO ===== */
-    .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;overflow:hidden;background:linear-gradient(180deg,var(--green-mist) 0%,var(--beige-warm) 60%,var(--beige-light) 100%);padding-bottom:3rem}
+    .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:flex-start;padding-top:15vh;align-items:center;text-align:center;overflow:hidden;background:linear-gradient(180deg,var(--green-mist) 0%,var(--beige-warm) 60%,var(--beige-light) 100%);padding-bottom:3rem}
     .hero::before{content:'';position:absolute;top:-20%;left:-10%;width:120%;height:140%;background:radial-gradient(ellipse 600px 400px at 20% 30%,rgba(138,186,122,.25) 0%,transparent 70%),radial-gradient(ellipse 500px 500px at 75% 60%,rgba(90,143,106,.15) 0%,transparent 70%),radial-gradient(ellipse 300px 300px at 50% 20%,rgba(197,221,184,.3) 0%,transparent 70%);pointer-events:none;will-change:transform;animation:floatBg 20s ease-in-out infinite alternate}
     @keyframes floatBg{0%{transform:translate(0,0) scale(1)}100%{transform:translate(-20px,15px) scale(1.03)}}
 
@@ -60,7 +60,7 @@
 
     /* [Design] 料金カード→特徴バッジに変更 */
     .hero-highlights{display:flex;justify-content:center;gap:2rem;max-width:600px;margin:0 auto 2.5rem;opacity:0;animation:fadeUp 1s ease .8s forwards}
-    .hero-badge{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1rem .5rem}
+    .hero-badge{display:flex;flex-direction:column;align-items:center;gap:.6rem;padding:1rem .5rem;flex:1}
     .hero-badge-icon{width:52px;height:52px;display:flex;align-items:center;justify-content:center;background:rgba(255,255,255,.7);backdrop-filter:blur(6px);border-radius:50%;border:1px solid var(--green-pale)}
     .hero-badge-text{font-family:'Noto Serif JP',serif;font-weight:400;font-size:.82rem;letter-spacing:.08em;color:var(--text-main);white-space:nowrap}
 
@@ -92,7 +92,7 @@
     /* [Design] セクション余白: 8rem→6rem */
     section{padding:6rem 2rem;position:relative}
     .section-inner{max-width:800px;margin:0 auto;position:relative;z-index:2}
-    .section-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.75rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:2rem}
+    .section-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.875rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:2rem}
     .section-title{font-family:'Noto Serif JP',serif;font-weight:300;font-size:clamp(1.4rem,3vw,2rem);letter-spacing:.1em;line-height:2;color:var(--text-main);margin-bottom:2.5rem}
     /* [Design] line-height: 2.2→2.0 */
     .section-body{font-weight:300;font-size:.92rem;line-height:2;color:var(--text-soft);letter-spacing:.04em}
@@ -181,7 +181,7 @@
     .plan-note{text-align:center;margin-top:2rem;font-size:.78rem;color:var(--text-faint);letter-spacing:.05em;line-height:2}
     .visitor-block{margin-top:4rem}
     .visitor-divider{width:40px;height:1px;background:var(--green-pale);margin:0 auto 2.5rem}
-    .visitor-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.7rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.5rem}
+    .visitor-label{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:.825rem;letter-spacing:.4em;text-transform:uppercase;color:var(--green-mid);margin-bottom:1.5rem}
     .visitor-title{font-family:'Noto Serif JP',serif;font-weight:300;font-size:clamp(1.1rem,2.5vw,1.4rem);letter-spacing:.1em;line-height:2;color:var(--text-main);margin-bottom:1.5rem}
     .visitor-body{font-weight:300;font-size:.88rem;line-height:2;color:var(--text-soft);letter-spacing:.04em;margin-bottom:2rem}
     .visitor-card{background:var(--beige-light);border:1px solid var(--green-pale);border-radius:6px;padding:2.5rem 2rem;text-align:center;max-width:320px}
@@ -279,7 +279,7 @@
     /* ===== TABLET / MOBILE ===== */
     @media(max-width:768px){
       section{padding:4.5rem 1.5rem}
-      .hero{padding-bottom:2rem}
+      .hero{padding-bottom:2rem;padding-top:12vh}
       .hero-content{padding:0 1.5rem}
       .hero-copy{font-size:1.6rem;letter-spacing:.1em;line-height:1.9}
       .hero-sub{font-size:.88rem;letter-spacing:.12em}
@@ -334,7 +334,7 @@
     /* ===== SMALL PHONE ===== */
     @media(max-width:389px){
       section{padding:3.5rem 1.2rem}
-      .hero{min-height:100svh}
+      .hero{min-height:100svh;padding-top:10vh}
       .hero-content{padding:0 1.2rem}
       .hero-logo{font-size:.85rem;letter-spacing:.35em;margin-bottom:2.5rem}
       .hero-copy{font-size:1.35rem;letter-spacing:.08em;line-height:1.85;margin-bottom:1.5rem}
@@ -347,7 +347,7 @@
       .cta-button{padding:1rem 2rem;font-size:.82rem;gap:.6rem}
       .cta-button svg{width:18px;height:18px}
       .cta-note{font-size:.68rem}
-      .section-label{font-size:.68rem;letter-spacing:.3em;margin-bottom:1.5rem}
+      .section-label{font-size:.805rem;letter-spacing:.3em;margin-bottom:1.5rem}
       .section-title{font-size:1.15rem;letter-spacing:.04em;line-height:1.85;margin-bottom:2rem}
       .section-body{font-size:.82rem;line-height:2;letter-spacing:.01em}
       .concept-words{padding-left:1rem;gap:.8rem;margin-top:2.5rem}
@@ -426,7 +426,7 @@
       <p class="hero-logo">Forest Gym</p>
       <h1 class="hero-copy">深呼吸から、はじめる。</h1>
       <!-- [Copy] サブコピー変更: カテゴリ認識+差別化ワード -->
-      <p class="hero-sub">赤羽のパーソナルジム ── 追い込まないトレーニング</p>
+      <p class="hero-sub">赤羽のパーソナルジム──都内で自然を。</p>
       <!-- [Copy][Design] 料金カード→特徴バッジに変更: 価格ジャッジ回避 -->
       <div class="hero-highlights">
         <div class="hero-badge">
@@ -457,12 +457,6 @@
         <!-- [Copy] 72時間割引をHeroから削除 -->
       </div>
     </div>
-    <!-- [Copy] スクロール誘導にコピー追加 -->
-    <div class="hero-scroll">
-      <p class="hero-scroll-copy">がんばらなくていいジムの話</p>
-      <span>scroll</span>
-      <div class="hero-scroll-line"></div>
-    </div>
   </section>
 
   <div class="vine-divider"><svg viewBox="0 0 200 80" fill="none"><path d="M20,40 Q50,40 100,40 Q150,40 180,40" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><path d="M60,40 Q55,25 65,18" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="65" cy="16" rx="6" ry="4" fill="rgba(138,186,122,.3)" class="vine-leaf"/><path d="M100,40 Q105,55 95,62" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="95" cy="64" rx="7" ry="4" fill="rgba(197,221,184,.35)" class="vine-leaf"/><path d="M140,40 Q135,28 145,20" stroke="var(--green-pale)" stroke-width="1" stroke-linecap="round"/><ellipse cx="145" cy="18" rx="5" ry="3.5" fill="rgba(138,186,122,.25)" class="vine-leaf"/></svg></div>
@@ -473,9 +467,9 @@
     <div class="side-foliage side-foliage--right"><svg width="60" height="300" viewBox="0 0 60 300" class="foliage-sway-r"><path d="M60,50 Q40,60 50,80 Q60,100 45,120 Q30,140 50,160 Q65,180 45,200 Q25,220 50,240 Q60,260 45,280" stroke-linecap="round"/><ellipse cx="50" cy="80" rx="10" ry="6" fill="rgba(138,186,122,.2)" stroke="none"/><ellipse cx="45" cy="120" rx="8" ry="5" fill="rgba(197,221,184,.2)" stroke="none"/><ellipse cx="50" cy="160" rx="11" ry="6" fill="rgba(138,186,122,.15)" stroke="none"/><ellipse cx="45" cy="200" rx="9" ry="5" fill="rgba(197,221,184,.2)" stroke="none"/></svg></div>
     <div class="section-inner fade-in">
       <p class="section-label">Concept</p>
-      <h2 class="section-title">がんばらなくていい。<br class="br-pc">ただ、来るだけでいい。</h2>
+      <h2 class="section-title">日常の運動を、自然と共に。</h2>
       <!-- [Copy] 本文変更: 「目指しました」→「つくりました」 -->
-      <p class="section-body">FOREST GYMは、<strong>追い込まない</strong>ジムです。<br class="br-pc">「運動しなきゃ」ではなく、「なんとなく、行きたいな」。<br>そう思える場所を、つくりました。</p>
+      <p class="section-body">FOREST GYMは、「がんばらなくていい。ただ、来るだけでいい。」そんなジムです。<br class="br-pc">「運動しなきゃ!」ではなく「行きたいな。」<br>そう思える場所を、つくりました。</p>
       <!-- [Copy] キーワード変更: 「即決を迫らない」→「急かさない」 -->
       <div class="concept-words"><p>煽らない。</p><p>急かさない。</p><p>続くことだけを、考えた。</p></div>
     </div>
@@ -534,7 +528,7 @@
     <div class="section-komorebi"><div class="k-spot"></div><div class="k-spot"></div><div class="k-spot"></div></div>
     <div class="section-inner fade-in">
       <p class="section-label">Trainer</p>
-      <h2 class="section-title">あなたの隣にいる人。</h2>
+      <h2 class="section-title">あなたと共に歩むトレーナー</h2>
       <div class="trainer-content">
         <div class="trainer-photo">
           <div class="trainer-photo-inner">
@@ -562,14 +556,14 @@
     <div class="side-foliage side-foliage--right"><svg width="50" height="240" viewBox="0 0 50 240" class="foliage-sway-r"><path d="M50,30 Q32,55 42,85 Q52,115 35,145 Q20,175 40,205 Q50,225 38,240" stroke-linecap="round"/><ellipse cx="42" cy="85" rx="9" ry="5" fill="rgba(138,186,122,.2)" stroke="none"/><ellipse cx="35" cy="145" rx="8" ry="5" fill="rgba(197,221,184,.15)" stroke="none"/><ellipse cx="40" cy="205" rx="9" ry="5" fill="rgba(138,186,122,.15)" stroke="none"/></svg></div>
     <div class="section-inner fade-in">
       <p class="section-label">Voice</p>
-      <h2 class="section-title">通っている方の声。</h2>
+      <h2 class="section-title">モニターの声。</h2>
       <!-- [Copy] 3件→5件に拡充、イニシャル・通った期間追加 -->
       <div class="voice-list">
-        <div class="voice-item"><p>前のジムは「行かなきゃ」って場所でした。<br class="br-pc">ここは「行きたいな」って思える場所になりました。</p><p class="voice-attr">── Y.S. さん ／ 30代 会社員 ／ 通って6ヶ月</p></div>
-        <div class="voice-item"><p>入った瞬間に空気が変わる感じがして、<br class="br-pc">それだけで来てよかったと思えます。<br>月に4回、自分だけの深呼吸の時間です。</p><p class="voice-attr">── K.M. さん ／ 20代 自営業 ／ 通って4ヶ月</p></div>
-        <div class="voice-item"><p>トレーナーさんが無理に追い込まないから、<br class="br-pc">自分のペースで続けられています。もう8ヶ月になりました。</p><p class="voice-attr">── T.A. さん ／ 40代 会社員 ／ 通って8ヶ月</p></div>
-        <div class="voice-item"><p>正直、体験のときは「また続かないんだろうな」と思ってました。<br class="br-pc">でも最初に「無理しなくていいですよ」と言ってもらえて、<br>肩の力が抜けたのを覚えています。</p><p class="voice-attr">── A.N. さん ／ 30代 会社員 ／ 通って5ヶ月</p></div>
-        <div class="voice-item"><p>仕事終わりに静かな空間でからだを動かす。<br class="br-pc">それだけのことが、こんなに気持ちいいとは思いませんでした。</p><p class="voice-attr">── M.H. さん ／ 20代 会社員 ／ 通って3ヶ月</p></div>
+        <div class="voice-item"><p>前のジムは「行かなきゃ」って場所でした。<br class="br-pc">ここは「行きたいな」って思える場所になりました。</p><p class="voice-attr">── Y.S. さん ／ 30代 会社員</p></div>
+        <div class="voice-item"><p>入った瞬間に空気が変わる感じがして、<br class="br-pc">それだけで来てよかったと思えます。<br>月に4回、自分だけの深呼吸の時間です。</p><p class="voice-attr">── K.M. さん ／ 20代 自営業</p></div>
+        <div class="voice-item"><p>トレーナーさんが無理に追い込まないから、<br class="br-pc">自分のペースで続けられています。</p><p class="voice-attr">── T.A. さん ／ 40代 会社員</p></div>
+        <div class="voice-item"><p>正直、体験のときは「また続かないんだろうな」と思ってました。<br class="br-pc">でも最初に「無理しなくていいですよ」と言ってもらえて、<br>肩の力が抜けたのを覚えています。</p><p class="voice-attr">── A.N. さん ／ 30代 会社員</p></div>
+        <div class="voice-item"><p>仕事終わりに静かな空間でからだを動かす。<br class="br-pc">それだけのことが、こんなに気持ちいいとは思いませんでした。</p><p class="voice-attr">── M.H. さん ／ 20代 会社員</p></div>
       </div>
     </div>
   </section>
@@ -585,8 +579,8 @@
       <h2 class="section-title">シンプルな、ふたつのプラン。</h2>
       <div class="plan-cards">
         <!-- [Copy] 単価表示追加 -->
-        <div class="plan-card"><p class="plan-card-label">Daytime</p><p class="plan-card-name">昼プラン</p><p class="plan-card-detail">月4回 ／ 60分 ／ 完全予約制</p><p class="plan-card-price">¥26,000<span>／月（税込）</span></p><p class="plan-card-unit">1回あたり ¥6,500</p></div>
-        <div class="plan-card"><p class="plan-card-label">Nighttime</p><p class="plan-card-name">夜プラン</p><p class="plan-card-detail">月4回 ／ 90分 ／ 完全予約制</p><p class="plan-card-price">¥38,000<span>／月（税込）</span></p><p class="plan-card-unit">1回あたり ¥9,500</p></div>
+        <div class="plan-card"><p class="plan-card-label">Daytime（8:00〜22:00）</p><p class="plan-card-name">昼プラン</p><p class="plan-card-detail">月4回 ／ 60分 ／ 完全予約制</p><p class="plan-card-price">¥26,000<span>／月（税込）</span></p><p class="plan-card-unit">1回あたり ¥6,500</p></div>
+        <div class="plan-card"><p class="plan-card-label">Nighttime（22:00〜翌6:00）</p><p class="plan-card-name">夜プラン</p><p class="plan-card-detail">月4回 ／ 90分 ／ 完全予約制</p><p class="plan-card-price">¥38,000<span>／月（税込）</span></p><p class="plan-card-unit">1回あたり ¥9,500</p></div>
       </div>
       <!-- [Copy] 補足変更: キャンセルポリシーはFAQへ移動 -->
       <div class="plan-note">食事のことも相談できます ── 食事管理サポート ¥10,000／月（オプション）</div>
@@ -640,22 +634,16 @@
       <!-- [Copy] Flow統合: 見出し・ステップ名変更 -->
       <h3 class="flow-subtitle">体験の流れ</h3>
       <div class="flow-steps">
-        <div class="flow-step"><div class="flow-step-num">01</div><h4 class="flow-step-title">カウンセリング（10分）</h4><p class="flow-step-detail">目標や生活リズムを、ゆっくりお聞きします。</p></div>
-        <div class="flow-step"><div class="flow-step-num">02</div><h4 class="flow-step-title">からだのチェック</h4><p class="flow-step-detail">可動域やバランスを確認。無理のない範囲で。</p></div>
-        <div class="flow-step"><div class="flow-step-num">03</div><h4 class="flow-step-title">トレーニング体験</h4><p class="flow-step-detail">この空間で、実際のメニューを体感してください。</p></div>
-        <div class="flow-step"><div class="flow-step-num">04</div><h4 class="flow-step-title">ふりかえり</h4><p class="flow-step-detail">気になることがあれば、なんでも聞いてください。入会を決める必要はありません。</p></div>
+        <div class="flow-step"><div class="flow-step-num">01</div><h4 class="flow-step-title">カウンセリング<br>（10分）</h4><p class="flow-step-detail">目標や生活リズムを、<br class="br-pc">ゆっくりお聞きします。</p></div>
+        <div class="flow-step"><div class="flow-step-num">02</div><h4 class="flow-step-title">からだのチェック</h4><p class="flow-step-detail">可動域やバランスを確認。<br class="br-pc">無理のない範囲で。</p></div>
+        <div class="flow-step"><div class="flow-step-num">03</div><h4 class="flow-step-title">トレーニング体験</h4><p class="flow-step-detail">この空間で、<br class="br-pc">実際のメニューを<br class="br-pc">体感してください。</p></div>
+        <div class="flow-step"><div class="flow-step-num">04</div><h4 class="flow-step-title">ふりかえり</h4><p class="flow-step-detail">気になることがあれば、<br class="br-pc">なんでも聞いてください。<br>入会を決める必要はありません。</p></div>
       </div>
       <div style="text-align:center">
         <a href="https://line.me/R/?src=lp_trial" class="cta-button" target="_blank" rel="noopener">
           <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
           <span>LINEで体験日を相談する</span>
         </a>
-        <!-- [Copy] マイクロコピー3点追加 -->
-        <div class="cta-microcopy">
-          <p class="cta-microcopy-item">営業メッセージは送りません</p>
-          <p class="cta-microcopy-item">いつでもブロックOK</p>
-          <p class="cta-microcopy-flow">LINE追加 → 希望日時を送信 → 確定のご連絡</p>
-        </div>
       </div>
     </div>
   </section>
@@ -757,11 +745,6 @@
         <svg viewBox="0 0 24 24"><path d="M19.365 9.863c.349 0 .63.285.63.631 0 .345-.281.63-.63.63H17.61v1.125h1.755c.349 0 .63.283.63.63 0 .344-.281.629-.63.629h-2.386c-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63h2.386c.346 0 .627.285.627.63 0 .349-.281.63-.63.63H17.61v1.125h1.755zm-3.855 3.016c0 .27-.174.51-.432.596-.064.021-.133.031-.199.031-.211 0-.391-.09-.51-.25l-2.443-3.317v2.94c0 .344-.279.629-.631.629-.346 0-.626-.285-.626-.629V8.108c0-.27.173-.51.43-.595.06-.023.136-.033.194-.033.195 0 .375.104.495.254l2.462 3.33V8.108c0-.345.282-.63.63-.63.345 0 .63.285.63.63v4.771zm-5.741 0c0 .344-.282.629-.631.629-.345 0-.627-.285-.627-.629V8.108c0-.345.282-.63.63-.63.346 0 .628.285.628.63v4.771zm-2.466.629H4.917c-.345 0-.63-.285-.63-.629V8.108c0-.345.285-.63.63-.63.348 0 .63.285.63.63v4.141h1.756c.348 0 .629.283.629.63 0 .344-.282.629-.629.629M24 10.314C24 4.943 18.615.572 12 .572S0 4.943 0 10.314c0 4.811 4.27 8.842 10.035 9.608.391.082.923.258 1.058.59.12.301.079.766.038 1.08l-.164 1.02c-.045.301-.24 1.186 1.049.645 1.291-.539 6.916-4.078 9.436-6.975C23.176 14.393 24 12.458 24 10.314"/></svg>
         <span>LINEで体験日を相談する</span>
       </a>
-      <!-- [Copy] マイクロコピー: 72時間割引→LINE登録の安心材料 -->
-      <div class="cta-microcopy">
-        <p class="cta-microcopy-item">営業メッセージは送りません ／ いつでもブロックOK</p>
-        <p class="cta-microcopy-flow">LINE追加 → 希望日時を送信 → 確定のご連絡</p>
-      </div>
     </div>
   </section>
 
